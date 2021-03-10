@@ -12,4 +12,6 @@ This departmental paper investigates how countries in Central, Eastern, and Sout
 
 [Download paper here](https://www.imf.org/en/Publications/Departmental-Papers-Policy-Papers/Issues/2020/05/10/Improving-Fiscal-Transparency-to-Raise-Government-Efficiency-and-Reduce-Corruption-46863)
 
-Recommended citation: Akitoby, B., Cui, L., Domit, S., Meng, J., Slavov, S., Suphaphiphat, N., Zhang, H.. Improving Fiscal Transparency to Raise Government Efficiency and Reduce Corruption Vulnerabilities in Central, Eastern, and Southeastern Europe. <i>IMF Departmental Paper No. 20/06</i>. 2020.
+<!---
+Recommended citation: Akitoby, B., Cui, L., Domit, S., Meng, J., Slavov, S., Suphaphiphat, N., Zhang, H.. Improving Fiscal Transparency to Raise Government Efficiency and Reduce Corruption Vulnerabilities in Central, Eastern, and Southeastern Europe. <i>IMF Departmental Paper No. 20/06</i>. 2020. 
+-->
