@@ -12,7 +12,8 @@ Algorithmic machine teaching has been studied under the linear setting where exa
 
 [Download paper here](https://arxiv.org/abs/2010.14043)
 
+<!---
 Recommended citation: Kumar, Akash, Zhang, Hanqi, Singla, Adish, and Chen, Yuxin. The Teaching Dimension of Kernel Perceptron. <i>arXiv preprint arXiv:2010.14043</i>. 2020.
-
+-->
 
 <!--- use &quot; for quotation marks -->
