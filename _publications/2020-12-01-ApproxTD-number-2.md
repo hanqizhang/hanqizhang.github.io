@@ -2,7 +2,7 @@
 title: "The Teaching Dimension of Kernel Perceptron"
 collection: publications
 permalink: /publication/2020-12-01-ApproxTD-number-2
-excerpt: 'Accepted to AISTATS'21'
+excerpt: 'Accepted to AISTATS &apos;21'
 date: 2020-12-01
 venue: 'ArXiv'
 paperurl: 'https://arxiv.org/abs/2010.14043'
