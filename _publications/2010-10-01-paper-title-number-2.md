@@ -1,9 +1,9 @@
 ---
 title: "The Teaching Dimension of Kernel Perceptron"
 collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
+permalink: /publication/2010-10-01-paper-title-number-2
 excerpt: 'Accepted to AISTATS'21'
-date: 2021-01-31
+date: 2020-12-01
 venue: 'ArXiv'
 paperurl: 'https://arxiv.org/abs/2010.14043'
 citation: 'Kumar, Akash, Zhang, Hanqi, Singla, Adish, and Chen, Yuxin. (2020). The Teaching Dimension of Kernel Perceptron. <i>arXiv preprint arXiv:2010.14043.</i>. (2020).'
