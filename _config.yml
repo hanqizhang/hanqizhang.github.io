@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "Zhang, Hanqi"
 title_separator          : "-"
-name                     : &name "Hank Zhang"
+name                     : &name "Hanqi A.E.H. Zhang"
 description              : &description "personal description"
 url                      : https://hanqizhang.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Hank Zhang"
+  name             : "Hank A.B.E. Zhang"
   avatar           : "profile.png"
   bio              : "I'm a recent graduate of UChicago computer science"
   location         : "Seattle"
@@ -181,9 +181,9 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
-  portfolio:
-    output: false
-    permalink: /:collection/:path/
+#   portfolio:
+#     output: false
+#     permalink: /:collection/:path/
   talks:
     output: false
     permalink: /:collection/:path/
@@ -230,7 +230,7 @@ defaults:
   # _portfolio
 #   - scope:
 #       path: ""
-#       type: portfolio
+#       type: 
 #     values:
 #       layout: single
 #       author_profile: true
