@@ -1,12 +1,15 @@
 ---
 permalink: /markdown/
-title: "Markdown"
+title: "Misc."
 author_profile: true
 redirect_from: 
   - /md/
   - /markdown.html
 ---
 
+I go by Hank. But I used "Alan" for a long time, simply because that was the first English name my English teacher gave me. My first English teacher only named her favorite students, so I kept the name for over 10 years. I probably do not strike people as a Henry, but I see Hank as an Anglicized version of my Chinese name (涵奇), which is pronounced as Haan-chee.
+
+{% comment %}
 ## Locations of key files/directories
 
 * Basic config options: _config.yml
@@ -200,3 +203,5 @@ Still sticking with science and Isaac Newton's E = MC<sup>2</sup>, which should 
 ### Variable Tag
 
 This allows you to denote <var>variables</var>.
+{% endcomment %}
+
