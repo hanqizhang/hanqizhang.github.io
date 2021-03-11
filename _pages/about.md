@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-I am a recent graduate of UChicago computer science. My research interests include: deep learning, computational neuroscience, and artificial intelligence.
+I am a recent graduate of UChicago computer science. My research interests include: computational neuroscience, and artificial intelligence, and machine learning.
