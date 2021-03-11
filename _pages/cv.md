@@ -11,22 +11,18 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* Tsinghua University, B.A., English (Linguistics), 2015, M.L. International Studies, 2018
+* Johns Hopkins University, M.A., Economics, 2018
+* University of Chicago, M.S., Computer Science, 2020
+{% comment %}
+* New York University, Ph.D, Neuroscience, 2026 (expected)
+{% endcomment %}
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* International Monetary Fund: 2017-19, 2020-21 
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+{% comment %}
 Skills
 ======
 * Skill 1
@@ -35,6 +31,7 @@ Skills
   * Sub-skill 2.2
   * Sub-skill 2.3
 * Skill 3
+{% endcomment %}
 
 Publications
 ======
@@ -53,7 +50,9 @@ Teaching
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
+{% comment %}
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
+{% endcomment %}
