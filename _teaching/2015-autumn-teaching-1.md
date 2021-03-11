@@ -8,4 +8,4 @@ date: 2015-09-01
 location: "Beijing, China"
 ---
 
-Teaching Assistant for Prof. Yan Xuetong.
+Teaching assistant for Prof. Yan Xuetong.
