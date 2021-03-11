@@ -1,7 +1,7 @@
 ---
 title: "TA: Credit Risks and Credit Markets"
 collection: teaching
-type: "Workshop"
+type: "Graduate course"
 permalink: /teaching/2018-spring-teaching-1
 venue: "Johns Hopkins University, SAIS"
 date: 2018-01-15
