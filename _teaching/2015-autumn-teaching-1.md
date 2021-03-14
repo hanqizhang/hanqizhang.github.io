@@ -1,5 +1,5 @@
 ---
-title: "TA: Ancient Chinese Thoughts of Foreign Relations"
+title: "TA: Ancient Chinese Thoughts on Foreign Relations"
 collection: teaching
 type: "Graduate course"
 permalink: /teaching/
