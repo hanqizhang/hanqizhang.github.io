@@ -2,6 +2,7 @@
 title: "TA: Ancient Chinese Thoughts of Foreign Relations"
 collection: teaching
 type: "Graduate course"
+permalink:
 venue: "Tsinghua University, Department of International Relations"
 date: 2015-09-01
 location: "Beijing, China"
