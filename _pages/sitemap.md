@@ -27,7 +27,7 @@ A list of all the posts and publications found on the site. For you robots out t
 {% unless collection.output == false or collection.label == "posts" %}
   {% capture label %}{{ collection.label }}{% endcapture %}
   {% if label != written_label %}
-  <h2>{{ label }}</h2>
+  <h2 style="text-transform:capitalize;">{{ label }}</h2>
   {% capture written_label %}{{ label }}{% endcapture %}
   {% endif %}
 {% endunless %}
