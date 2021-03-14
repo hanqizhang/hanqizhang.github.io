@@ -7,8 +7,4 @@ date: 2015-09-01
 location: "Beijing, China"
 ---
 
-Teaching assistant for Prof. Yan Xuetong.
-
-{% comment %}
-permalink: /teaching/2015-autumn-teaching-1
-{% endcomment %}
+Teaching assistant for [Prof. Yan Xuetong](http://www.dir.tsinghua.edu.cn/iren/info/1033/1254.htm)
