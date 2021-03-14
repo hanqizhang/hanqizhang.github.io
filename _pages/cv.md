@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* Tsinghua University - B.A., English (Linguistics), 2015; M.L., International Studies, 2018
+* Tsinghua University - B.A., English (Linguistics), 2015; M.L., Global Politics and Economics, 2018
 * Johns Hopkins University - M.A., Economics, 2018
 * University of Chicago - M.S., Computer Science, 2020
 {% comment %}
