@@ -7,5 +7,5 @@ date: 2018-01-15
 location: "Washington DC, United States"
 ---
 
-Teaching assistant for Prof. Jack D. Glen <a> https://sais.jhu.edu/users/jglen2-0 <a>
+Teaching assistant for [Prof. Jack D. Glen](https://sais.jhu.edu/users/jglen2-0)
 
