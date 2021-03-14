@@ -1,5 +1,5 @@
 ---
-title: "TA: Credit Risks and Credit Markets"
+title: "TA: Credit Markets and Credit Risks"
 collection: teaching
 type: "Graduate course"
 permalink: /teaching/2018-spring-teaching-1
