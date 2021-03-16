@@ -9,6 +9,10 @@ redirect_from:
 
 {% include base_path %}
 
+Contact
+======
+hqzhang at myinstitution dot edu
+
 Education
 ======
 * Tsinghua University - B.A., English (Linguistics), 2015; M.L., Global Politics and Economics, 2018
