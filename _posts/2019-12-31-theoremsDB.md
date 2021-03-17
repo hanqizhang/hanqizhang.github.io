@@ -8,7 +8,7 @@ tags:
   - toy project
 ---
 
-One of the many moments of wonder I experienced when taking math classes sporadically in the past years was when I first learned Euler's formula. Moments like that, plus the googling I have done over the years whenever I forgot what a certain theorem was or got curious about its background, led me to notice that a great many of famous theorems just have a hyperlink path (on Wikipedia) directly or with several hops to a handful of mathematicians. Euler, Gauss... I'm sure you can name them.
+One of the several moments of wonder I experienced when taking math classes sporadically in the past years was when I first learned Euler's formula. Moments like that, plus the googling I have done over the years whenever I forgot what a certain theorem was or got curious about its background, led me to notice that a good many of famous theorems just have a hyperlink path (on Wikipedia) directly or with several hops to a handful of mathematicians. Euler, Gauss... I'm sure you can name them.
 
 And prestigious families like the Bernoullis just add more flavor to the network of mathematicians from around the 18th century. 
 
