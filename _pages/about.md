@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Incoming PhD student of neuroscience at New York University (Shanghai track, advised by [Prof. Sukbin Lim](https://shanghai.nyu.edu/academics/faculty/directory/sukbin-lim)), and recent graduate of UChicago computer science. My research interests include: computational neuroscience, artificial intelligence, and machine learning. As a broad goal, I focus on acpects from these fields that would benefit our understanding of the human brain and potentially improve brain functions. 
+Incoming PhD student of neuroscience at New York University (Shanghai track, advised by [Prof. Sukbin Lim](https://shanghai.nyu.edu/academics/faculty/directory/sukbin-lim)), and recent graduate of UChicago computer science (advised by [Prof. Yuxin Chen](https://yuxinchen.org)). My research interests include: computational neuroscience, artificial intelligence, and machine learning. As a broad goal, I focus on acpects from these fields that would benefit our understanding of the human brain and potentially improve brain functions. 
 
 I am passionate about computationally simulating the human brain. I believe that deep learning and neuroscience should complement each other, so that neither the deep learning model nor the human brain remains a black box. My current research focuses on improving the recurrent neural network models used for computer vision towards more human-like performance.
 
