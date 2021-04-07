@@ -14,4 +14,4 @@ I am passionate about computationally simulating the human brain. I believe that
 
 I am also interested in how artificial intelligence can augment human cognition and in general, how the two distinct kinds of intelligence can efficiently interact. I have worked on the topic of machine teaching where we explore how humans could be efficient in teaching and influencing a machine learner, ideally in an intuitive manner.
 
-
+Last but not least, coming from a strange mixture of academic backgrounds, I am always excited for interdisciplinary work and collaboration! More than happy to explore your bold ideas together. You can find my email address on this [page](https://hanqizhang.github.io/cv/).
