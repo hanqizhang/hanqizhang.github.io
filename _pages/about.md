@@ -12,6 +12,6 @@ Incoming PhD student of neuroscience at [NYU](https://shanghai.nyu.edu/academics
 
 I am passionate about computationally simulating the human brain. I believe that deep learning and neuroscience should propel each other, seeking plausibility and evidence in one field for findings in the other, so that neither the deep learning model nor the human brain remains a black box. My current research focuses on improving the recurrent neural network models used for computer vision towards more human-like performance.
 
-I am also interested in how artificial intelligence can complement or augment human cognition. I have worked on the topic of machine teaching, where a machine teacher can potentially be used to more efficiently teach a concept to a human learner. With machine teaching, humans could also be efficient in teaching and influencing a machine learner, ideally in an intuitive manner.
+I am also interested in how artificial intelligence can augment human cognition and in general, how the two distinct kinds of intelligence can efficiently interact. I have worked on the topic of machine teaching where we explore how humans could be efficient in teaching and influencing a machine learner, ideally in an intuitive manner.
 
 
