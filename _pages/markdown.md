@@ -7,7 +7,7 @@ redirect_from:
   - /markdown.html
 ---
 
-I go by Hank. But I used "Alan" for a long time, simply because that was the English name given to me by my first English teacher. She only named her favorite students, so I kept the name for over 10 years. I probably do not strike people as a Henry, but I see Hank as an Anglicized version of my Chinese name (涵奇), which is pronounced as Haan-chee.
+My Chinese name is (涵奇), which is pronounced as Haan-chee. Many people had the urge to pronounce the "q" in my name as a "/k/", hence the English name Hank, which is due to my first tennis coach Daryl at UC Davis.
 
 {% comment %}
 ## Locations of key files/directories
