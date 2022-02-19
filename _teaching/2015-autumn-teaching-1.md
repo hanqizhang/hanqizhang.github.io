@@ -8,4 +8,4 @@ date: 2015-09-01
 location: "Beijing, China"
 ---
 
-Teaching assistant for [Prof. Yan Xuetong](http://www.dir.tsinghua.edu.cn/iren/info/1033/1254.htm)
+Teaching assistant for [Dr. Yan Xuetong](http://www.dir.tsinghua.edu.cn/iren/info/1033/1254.htm)
