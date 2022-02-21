@@ -1,0 +1,14 @@
+---
+layout: archive
+title: "Teaching"
+permalink: /teaching/
+author_profile: true
+---
+
+{% comment %}
+{% include base_path %}
+{% endcomment %}
+
+{% for post in site.teaching reversed %}
+  {% include archive-single.html %}
+{% endfor %}
