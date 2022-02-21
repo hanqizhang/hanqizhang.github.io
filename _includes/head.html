@@ -20,4 +20,8 @@
 
 <meta http-equiv="cleartype" content="on">
 
+{%- feed_meta -%}
+{%- if jekyll.environment == 'production' and site.google_analytics -%}
+  {%- include google-analytics.html -%}
+{%- endif -%}
 <meta name="google-site-verification" content="UFoe13gWH1nYRKRlEdLXBYVHHJdFRA1z3ufT1AQC02o">
