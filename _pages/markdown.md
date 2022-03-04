@@ -7,7 +7,7 @@ redirect_from:
   - /markdown.html
 ---
 
-My Chinese name is (涵奇), which is pronounced as Haan-chee. Many people found it natural to pronounce the "q" in my name as a "/k/", hence the English name Hank, which is due to my first tennis coach Daryl at UC Davis.
+My Chinese name is 涵奇 (Hanqi), which is pronounced as Haan-chee. Many people found it natural to pronounce the "q" in my name as a "/k/", hence the English name Hank, which is due to my first tennis coach Daryl at UC Davis.
 
 {% comment %}
 ## Locations of key files/directories
