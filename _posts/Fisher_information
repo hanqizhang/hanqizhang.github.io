@@ -1,1 +1,14 @@
+---
+title: 'Notes on Fisher Information and related concepts in Neuroscience'
+date: 2023-02-07
+permalink: /posts/2023/02/blog-post-1/
+tags:
+  - neuroscience
+  - perception
+  - neural representation
+---
 
+Fisher information 
+\begin{align}
+  J(\theta) = \int{-p(r)dr}
+\end{align}
