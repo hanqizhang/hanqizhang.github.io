@@ -44,7 +44,7 @@ algorithms for speed optimization. At the end of this section, we also list the 
 
 The inference problem itself does not have temporal dynamics, since we are interested only in 
 the short time frame within which the brain quickly carries out an inference from some observed input that can be considered static within that i
-nstant. Hence we denote the latent variable $${\mathbf{r}_\bullet}$$ and the observation or input $$\mathbf{h}_.$$. The generative model is as follows, 
+nstant. Hence we denote the latent variable $${\mathbf{r}_\bullet}$$ and the observation or input $${\mathbf{h}_\bullet}$$. The generative model is as follows, 
 where $\mathbf{C}$ and $\mathbf{A}$ are taken as given:
 $$
 \begin{align}
@@ -107,13 +107,11 @@ The Wiener process, $d\mathbf{\xi}$, of unit variance can be rewritten as, $d\ma
 distribution of $\mathbf{r}$ is when $\mathbb{E}(d\mathbf{r}) = 0$:
 $$
 \begin{align}
-    % 0 &= \mathbb{E} \left( d\mathbf{r} \right) \\
     0 &= \mathbb{E} \left( \frac{dt}{\tau_m} \left( -\mathbf{r}(t) + \mathbf{Wr}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} \cdot \sqrt{dt} \mathcal{N} (0,1) \right) \\
     0 &= \frac{dt}{\tau_m} \mathbb{E} \left( -\mathbf{r}(t) + \mathbf{Wr}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} \cdot \sqrt{dt} \cdot \mathbb{E} \left( \mathcal{N}(0,1) \right) \\
     0 &= \frac{dt}{\tau_m} \mathbb{E} \left( (-\mathbf{I} + \mathbf{W}) \mathbf{r}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} \cdot \sqrt{dt} \cdot 0 \\
     0 &= \frac{dt}{\tau_m} \left( (-\mathbf{I}+\mathbf{W})\mathbb{E}(\mathbf{r}(t)) + \mathbf{Fh} \right) \\
     (-\mathbf{I}+\mathbf{W}) \mathbf{\mu}^{\mathbf{r}} &= -\mathbf{Fh} \\
-    % \mathbf{\mu}^{\mathbf{r}} &= (-\mathbf{I}+\mathbf{W})^{-1}(-\mathbf{Fh})\\
     \mathbf{\mu}^\mathbf{r}(\mathbf{h}) &= (\mathbf{I}-\mathbf{W})^{-1}\mathbf{Fh} \numberthis \label{eqn: mu}
 \end{align}
 $$
@@ -221,37 +219,37 @@ $$
     \mathcal{L}(\mathbf{S}) = \frac{1}{2\tau_m N^2} \int_{0}^\infty \Big\vert\Big\vert \mathbf{\Lambda}^{-\frac{1}{2}} \mathbf{K}(\mathbf{S},\tau) \mathbf{\Lambda}^{-\frac{1}{2}} \Big\vert\Big\vert_F^2 d\tau + \frac{\lambda_{L_2}}{2N^2}\Big\vert\Big\vert \mathbf{W}(\mathbf{S}) \Big\vert\Big\vert_F^2
 \end{equation}
 $$
+
 ***Sampling Algorithms.***
 
 Once we have optimized for $\mathbf{W}$, we can plug it in the sampling algorithm to simulate the samples generated from the recurrent network. 
 The simulation results help visualize the sampling behavior and empirically analyzing how sampling is sped up, which will be shown in 
 Section \ref{sec: Experimental Evaluation}. Here we describe the sampling algorithms.
 
-***Sampling for Eq.\eqref{sde1}}.*** Eq.\eqref{sde1} can be discretized using the Euler-Maruyama method, and be written as:
+***Sampling for Eq.\eqref{sde1}.*** Eq.\eqref{sde1} can be discretized using the Euler-Maruyama method, and be written as:
 $$
 \begin{equation}
 \mathbf{r}(t+dt) - \mathbf{r}(t) = \frac{dt}{\tau_m}[-\mathbf{r}(t) + \mathbf{Wr}(t) + \mathbf{Fh}] + \sigma_{\xi}\sqrt{\frac{2dt}{\tau_m}}\mathbf{\eta},
 \end{equation}
 $$
 where $\mathbf{\eta} \sim \mathcal{N}(0,1)$ and $\mathbf{h}$ is zero without loss of generality.
-$$
-\begin{algorithm}
-\caption{Sampling from the posterior by linear stochastic recurrent dynamics}
-\textbf{Input:} Skew-symmetric matrix $\mathbf{S}$ and the covariance matrix $\mathbf{\Sigma}$ of the target posterior.
+
+Sampling from the posterior by linear stochastic recurrent dynamics
+- **Input:** Skew-symmetric matrix $\mathbf{S}$ and the covariance matrix $\mathbf{\Sigma}$ of the target posterior.
 - Compute the weight matrix $\mathbf{W} = \mathbf{I} + (-\sigma_{\xi}^2\mathbf{I} + \mathbf{S})\mathbf{\Sigma}^{-1}$
 - Generate initial sample $\mathbf{r}(0) = 0$
 - For $k=1,2,...,K$:
 \begin{align}
-    &\text{Generate\ } \mathbf{\eta}(k) \sim \mathcal{N}(0,1) \\
+    &\text{Generate } \mathbf{\eta}(k) \sim \mathcal{N}(0,1) \\
     &\mathbf{r}(k) = \mathbf{r}(k-1) + \frac{dt}{\tau_m}[-\mathbf{r}(k-1) + \mathbf{Wr}(k-1)] + \sigma_{\xi}\sqrt{\frac{2dt}{\tau_m}}\mathbf{\eta}(k)
 \end{align}
-\textbf{Output:} K samples $\{\mathbf{r}(1), ..., \mathbf{r}(K)\}$ from the posterior: $\mathbf{r|h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})$
-\end{algorithm}
-$$
+- **Output:** K samples $$\{\mathbf{r}(1), ..., \mathbf{r}(K)\}$$ from the posterior: $$\mathbf{r|h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})$$
+
+
 ***Gibbs sampling.*** We also compare the above sampling technique with Gibbs Sampling. Gibbs Sampling samples the posterior 
 $\mathbf{r}|\mathbf{h}$ by sampling $\mathbf{r}_i | \mathbf{r}_{j\neq i}, \mathbf{h}$ sequentially for each $\mathbf{r}_i$.
 
-Since $p(\mathbf{r}|\mathbf{h}) = \mathcal{N}(0, \mathbf{\Sigma})$, thus $p(\mathbf{r}_i|\mathbf{r}_{j\neq i}, \mathbf{h}) = \mathcal{N}(\mathbf{\mu}^{[i]}, \mathbf{\Sigma}^{[i]})$ 
+Since $$p(\mathbf{r}|\mathbf{h}) = \mathcal{N}(0, \mathbf{\Sigma})$$, thus $$p(\mathbf{r}_i|\mathbf{r}_{j\neq i}, \mathbf{h}) = \mathcal{N}(\mathbf{\mu}^{[i]}, \mathbf{\Sigma}^{[i]})$$ 
 where:
 $$
 \begin{align}
@@ -259,6 +257,6 @@ $$
     \mathbf{\Sigma}^{[i]} &= \sigma_i^2 - \mathbf{DB}^{-1}\mathbf{D}^\top
 \end{align} 
 $$
-where $\sigma_i^2$ is the $i$-th diagonal element of $\mathbf{\Sigma}$, and $\mathbf{D} = \mathbf{\Sigma}_{row=i,col\neq i}$ and 
-$\mathbf{B} = \mathbf{\Sigma}_{row\neq i, col\neq i}$. In other words, $\mathbf{D}$ is a 1$\times (N-1)$ matrix corresponding to the $i$-th row 
-of $\mathbf{\Sigma}$ but excluding the $i$-th column. $\mathbf{B}$ is $\mathbf{\Sigma}$ excluding the $i$-th row and $i$-th column.
+where $\sigma_i^2$ is the $i$-th diagonal element of $$\mathbf{\Sigma}$$, and $$\mathbf{D} = \mathbf{\Sigma}_{row=i,col\neq i}$$ and 
+$$\mathbf{B} = \mathbf{\Sigma}_{row\neq i, col\neq i}$$. In other words, $$\mathbf{D}$$ is a 1$\times (N-1)$ matrix corresponding to the $i$-th row 
+of $$\mathbf{\Sigma}$$ but excluding the $i$-th column. $$\mathbf{B}$ is $\mathbf{\Sigma}$$ excluding the $i$-th row and $i$-th column.
