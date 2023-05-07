@@ -247,7 +247,7 @@ $$
     &\mathbf{r}(k) = \mathbf{r}(k-1) + \frac{dt}{\tau_m}[-\mathbf{r}(k-1) + \mathbf{Wr}(k-1)] + \sigma_{\xi}\sqrt{\frac{2dt}{\tau_m}}\mathbf{\eta}(k)
 \end{align}
 $$
-- **Output:** K samples $${\{\mathbf{r}(1), ..., \mathbf{r}(K)\}}$$ from the posterior: $${{\mathbf{r}|mathbf{h}=0} \sim \mathcal{N}(0, \mathbf{\Sigma})}$$
+- **Output:** K samples $${\{\mathbf{r}(1), ..., \mathbf{r}(K)\}}$$ from the posterior: **r**|**h**$$=0 \sim \mathcal{N}(0, \mathbf{\Sigma})$$
 
 
 ***Gibbs sampling.*** We also compare the above sampling technique with Gibbs Sampling. Gibbs Sampling samples the posterior 
