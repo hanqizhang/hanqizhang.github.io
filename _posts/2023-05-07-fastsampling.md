@@ -84,7 +84,7 @@ brain samples from the posterior distribution.
 
 As shown in Fig.1, we construct a linear network of recurrently connected neurons, $\mathbf{r}$, 
 where the recurrent weights are $\mathbf{W}$. They receive feed-forward input from $\mathbf{h}$ with weight matrix $\mathbf{F}$. At the same time, 
-$\mathbf{r}$ also receives external noise $\mathbf{\xi}$. The corresponding network dynamics is described in Eq.\eqref{sde1}. 
+$\mathbf{r}$ also receives external noise $\mathbf{\xi}$. The corresponding network dynamics is described below. 
 <!-- \begin{figure}[h]
 \begin{center}
   \includegraphics[width=1.5 in]{network.png}   
@@ -92,12 +92,13 @@ $\mathbf{r}$ also receives external noise $\mathbf{\xi}$. The corresponding netw
   \caption{Recurrent neuronal network}
   \label{fig:network}
 \end{figure} -->
+
 $$
 \begin{equation}
-    d\mathbf{r} = \frac{dt}{\tau_m} \left( -\mathbf{r}(t) + \mathbf{Wr}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} d\mathbf{\xi} (t)
-    \label{sde1}
+    d\mathbf{r} = \frac{dt}{\tau_m} \left( -\mathbf{r}(t) + \mathbf{Wr}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} d\mathbf{\xi} (t) \label{sde1}
 \end{equation}
 $$
+
 A nuanced distinction between the notation for the network and the notation in the inference problem description is that we will design 
 the network such that the recurrent neurons $\mathbf{r}$ have a stationary distribution matching the posterior distribution $p(\mathbf{r}|\mathbf{h})$ 
 described in section \ref{sec: inference}, not the marginal distribution $p(\mathbf{r})$. We will explain how to design the weights to achieve 
