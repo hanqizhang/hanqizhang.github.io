@@ -44,7 +44,7 @@ algorithms for speed optimization. At the end of this section, we also list the 
 
 The inference problem itself does not have temporal dynamics, since we are interested only in 
 the short time frame within which the brain quickly carries out an inference from some observed input that can be considered static within that i
-nstant. Hence we denote the latent variable $\mathbf{r}_\bullet$ and the observation or input $\mathbf{h}_\bullet$. The generative model is as follows, 
+nstant. Hence we denote the latent variable ${\mathbf{r}_\bullet}$ and the observation or input ${\mathbf{h}_\bullet}$. The generative model is as follows, 
 where $\mathbf{C}$ and $\mathbf{A}$ are taken as given:
 \begin{align*}
     % p(\mathbf{r}) &= \mathcal{N}(r; 0, C)\\
