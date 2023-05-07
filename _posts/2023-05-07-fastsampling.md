@@ -46,7 +46,7 @@ The inference problem itself does not have temporal dynamics, since we are inter
 the short time frame within which the brain quickly carries out an inference from some observed input that can be considered static within that i
 nstant. Hence we denote the latent variable $${\mathbf{r}_\bullet}$$ and the observation or input $$\mathbf{h}_.$$. The generative model is as follows, 
 where $\mathbf{C}$ and $\mathbf{A}$ are taken as given:
-\begin{align*}
+\begin{align}
     % p(\mathbf{r}) &= \mathcal{N}(r; 0, C)\\
     % p(h|r) &= \mathcal{N}(h; Ar, \sigma_h^2I)\\
     \mathbf{r_\bullet} &\sim \mathcal{N}(0, \mathbf{C})\\
@@ -56,23 +56,23 @@ where $\mathbf{C}$ and $\mathbf{A}$ are taken as given:
     % \mathbf{r|h} &\sim \mathcal{N}(\boldsymbol{\mu}, \mathbf{\Sigma})\\
     % \boldsymbol{\mu} &= \mathbf{\Sigma A}^\top \mathbf{h}/\sigma^2\\
     % \mathbf{\Sigma} &= (\mathbf{C}^{-1}+ \mathbf{A}^\top \mathbf{A}/\sigma^2)^{-1}
-\end{align*}
+\end{align}
 As the latent variable is static and the noise $\mathbf{v}$ is spherical, this is essentially a sensible PCA problem. We can compute the posterior u
 sing Bayes' Rule: $p(\mathbf{r}|\mathbf{h}) \propto p(\mathbf{h}|\mathbf{r})p(\mathbf{r})$. Specifically, we need to first write 
 $p(\mathbf{h}|\mathbf{r}) = \mathcal{N}(\mathbf{h}; \mathbf{Ar}, \sigma_h^2\mathbf{I})$ in terms of $\mathbf{r}$ before we can multiply the two densities:
-\begin{align*}
+\begin{align}
     p(\mathbf{h}|\mathbf{r}) &= \mathcal{N}(\mathbf{h}; \mathbf{Ar}, \sigma_h^2\mathbf{I}) = \mathcal{N}(\mathbf{Ar}; \mathbf{Ar}, \sigma_h^2\mathbf{I})\\
     &= \mathcal{N}(\mathbf{r}; (\mathbf{A}^\top \mathbf{A})^{-1}\mathbf{A}^\top \mathbf{h}, (\mathbf{A}^\top \mathbf{A})^{-1}\mathbf{A}^\top \sigma_h^2\mathbf{I} [(\mathbf{A}^\top \mathbf{A})^{-1}\mathbf{A}^\top]^\top)\\
     &= \mathcal{N}(\mathbf{r}; (\mathbf{A}^\top \mathbf{A})^{-1}\mathbf{A}^\top \mathbf{h}, (\mathbf{A}^\top \mathbf{A})^{-1}\sigma_h^2)
-\end{align*}
+\end{align}
 With this, we can multiply the multiply the densities to obtain $p(\mathbf{r}|\mathbf{h})$ using the Gaussian identity for the multiplication of two 
 Gaussian pdfs:
-\begin{align*}
+\begin{align}
     p(\mathbf{r}|\mathbf{h}) &\propto p(\mathbf{h}|\mathbf{r})p(\mathbf{r}) = \mathcal{N}(\mathbf{\mu},\mathbf{\Sigma})\nonumber\\
     \mathbf{\mu} &= \mathbf{\Sigma}(\mathbf{A}^\top \mathbf{A}/\sigma_h^2)(\mathbf{A}^\top \mathbf{A})^{-1}\mathbf{A}^\top \mathbf{h} \nonumber\\
         &= \mathbf{\Sigma} \mathbf{A}^\top \mathbf{h}/\sigma_h^2 \label{eqn: mu-target}\\
     \mathbf{\Sigma} &= (\mathbf{C}^{-1}+ \mathbf{A}^\top \mathbf{A}/\sigma_h^2)^{-1} \label{eqn: Sigma-target}
-\end{align*}
+\end{align}
 Here, it is important to note that only the mean of the posterior depends on $\mathbf{h}$, while the covariance matrix does not. When analyzing 
 the sampling speed, this property will allow us to set $\mathbf{h}$ to zero without loss of generality.
 
@@ -103,7 +103,7 @@ this in section \ref{sec: control}.
 
 The Wiener process, $d\mathbf{\xi}$, of unit variance can be rewritten as, $d\mathbf{\xi}(t) = \sqrt{dt} \mathcal{N}(0,1)$. Then, the stationary 
 distribution of $\mathbf{r}$ is when $\mathbb{E}(d\mathbf{r}) = 0$:
-\begin{align*}
+\begin{align}
     % 0 &= \mathbb{E} \left( d\mathbf{r} \right) \\
     0 &= \mathbb{E} \left( \frac{dt}{\tau_m} \left( -\mathbf{r}(t) + \mathbf{Wr}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} \cdot \sqrt{dt} \mathcal{N} (0,1) \right) \\
     0 &= \frac{dt}{\tau_m} \mathbb{E} \left( -\mathbf{r}(t) + \mathbf{Wr}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} \cdot \sqrt{dt} \cdot \mathbb{E} \left( \mathcal{N}(0,1) \right) \\
@@ -112,7 +112,7 @@ distribution of $\mathbf{r}$ is when $\mathbb{E}(d\mathbf{r}) = 0$:
     (-\mathbf{I}+\mathbf{W}) \mathbf{\mu}^{\mathbf{r}} &= -\mathbf{Fh} \\
     % \mathbf{\mu}^{\mathbf{r}} &= (-\mathbf{I}+\mathbf{W})^{-1}(-\mathbf{Fh})\\
     \mathbf{\mu}^\mathbf{r}(\mathbf{h}) &= (\mathbf{I}-\mathbf{W})^{-1}\mathbf{Fh} \numberthis \label{eqn: mu}
-\end{align*}
+\end{align}
 And the covariance of the stationary distribution is $\mathbf{\Sigma^r} = \langle(\mathbf{r}(t)-\mathbf{\mu^r})(\mathbf{r}(t)-\mathbf{\mu^r})^\top \rangle_t $.
 
 ***Simplifying the Control Theory Intuition Using a Discrete-time Analog.*** 
@@ -130,14 +130,14 @@ The AR1 process that corresponds to Eq.\eqref{sde1} is:
 \end{align}
 where $\mathbf{\eta}(t)$ is white noise with covariance $\mathbf{I}$. As long as a stationary distribution exists for  $\mathbf{r}$, its covariance 
 matrix $\mathbf{\Sigma^r}$ is related to the covariance matrix $\sigma^2_{\xi}\mathbf{I}$ of the noise input as follows:
-\begin{align*}
+\begin{align}
     \mathbf{\Sigma^r} &= \mathbb{E}(\mathbf{r}(t+1)\mathbf{r}(t+1)^\top)\\
     &= \mathbb{E}((\mathbf{Wr}(t)+\mathbf{Fh} + \sigma_{\xi} \mathbf{\eta}(t))(\mathbf{Wr}(t)+\mathbf{Fh} + \sigma_{\xi} \mathbf{\eta}(t))^\top)\\
     &= \mathbb{E}((\mathbf{Wr}(t)+\mathbf{Fh})(\mathbf{Wr}(t)+\mathbf{Fh})^\top) + \mathbb{E}((\mathbf{Wr}(t)+\mathbf{Fh})\sigma_{\xi} \mathbf{\eta}(t)^\top) + ...\\
     &\ \ \ \ \ \ \ \ \ \ \ \mathbb{E}(\sigma_{\xi} \mathbf{\eta}(t)(\mathbf{Wr}(t)+\mathbf{Fh})^\top) + \sigma^2_{\xi}\mathbb{E}(\mathbf{\eta}(t)\mathbf{\eta}(t)^\top)\\
     &= \mathbf{W\Sigma^rW}^\top + 0 + 0 + \sigma^2_{\xi}\mathbf{I} \\
     \mathbf{\Sigma^r} &= \mathbf{W\Sigma^rW}^\top + \sigma^2_{\xi}\mathbf{I} \numberthis \label{eqn: lyap-discrete}
-\end{align*}
+\end{align}
 Eq.\eqref{eqn: lyap-discrete}, called the discrete Lyapunov equation, is thus derived. This can be converted to the continuous-time version by 
 the derivation discussed in \cite{wikipedia}, and then the Lyapunov equation becomes:
 \begin{equation}
@@ -152,14 +152,14 @@ satisfy $\mathbf{\Sigma^r} = \mathbf{\Sigma}$ and $\mathbf{\mu^r}(\mathbf{h}) = 
 
 One way to set $\mathbf{W}$, $\mathbf{F}$ (while leaving $\sigma_{\xi}$ undetermined) is
 \begin{align}
-    \mathbf{F} = (\sigma_{\xi}/\sigma_{h})^2\mathbf{A}^\top \text{\ \ \ and\ \ \ } \mathbf{W} =\mathbf{I} - \sigma_{\xi}^2\mathbf{\Sigma}^{-1}
+    \mathbf{F} = (\sigma_{\xi}/\sigma_{h})^2\mathbf{A}^\top \text{ and } \mathbf{W} =\mathbf{I} - \sigma_{\xi}^2\mathbf{\Sigma}^{-1}
     \label{eqn: LS-solution}
 \end{align}
 And it can be easily shown that Eq.\eqref{sde1} with these parameters is equivalent to a common sampling technique -- Langevin Sampling (LS), 
 which is often expressed as a "noisy gradient ascent of the posterior":
-\begin{align*}
+\begin{align}
     d\mathbf{r} = \frac{1}{2}\frac{\partial}{\partial\mathbf{r}}\log p(\mathbf{r}|\mathbf{h})dt + d\mathbf{\xi}
-\end{align*}
+\end{align}
 as long as $\mathbf{r}|\mathbf{h}$ is Gaussian. This is verifiable by plugging in the Gaussian pdf for $p(\mathbf{r}|\mathbf{h})$ to the above equation.
 
 However, the authors were able to derive that LS is very slow. We will skip the derivations as they are not the main focus of the paper and do 
@@ -219,10 +219,10 @@ where $\mathbf{\eta} \sim \mathcal{N}(0,1)$ and $\mathbf{h}$ is zero without los
 - Compute the weight matrix $\mathbf{W} = \mathbf{I} + (-\sigma_{\xi}^2\mathbf{I} + \mathbf{S})\mathbf{\Sigma}^{-1}$
 - Generate initial sample $\mathbf{r}(0) = 0$
 - For $k=1,2,...,K$:
-\begin{align*}
+\begin{align}
     &\text{Generate\ } \mathbf{\eta}(k) \sim \mathcal{N}(0,1) \\
     &\mathbf{r}(k) = \mathbf{r}(k-1) + \frac{dt}{\tau_m}[-\mathbf{r}(k-1) + \mathbf{Wr}(k-1)] + \sigma_{\xi}\sqrt{\frac{2dt}{\tau_m}}\mathbf{\eta}(k)
-\end{align*}
+\end{align}
 \textbf{Output:} K samples $\{\mathbf{r}(1), ..., \mathbf{r}(K)\}$ from the posterior: $\mathbf{r|h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})$
 \end{algorithm}
 
@@ -231,10 +231,10 @@ $\mathbf{r}|\mathbf{h}$ by sampling $\mathbf{r}_i | \mathbf{r}_{j\neq i}, \mathb
 
 Since $p(\mathbf{r}|\mathbf{h}) = \mathcal{N}(0, \mathbf{\Sigma})$, thus $p(\mathbf{r}_i|\mathbf{r}_{j\neq i}, \mathbf{h}) = \mathcal{N}(\mathbf{\mu}^{[i]}, \mathbf{\Sigma}^{[i]})$ 
 where:
-\begin{align*}
+\begin{align}
     \mathbf{\mu}^{[i]} &= 0 + \mathbf{D} \mathbf{B}^{-1} (\mathbf{r}_{j\neq i} - 0) = \mathbf{D} \mathbf{B}^{-1} \mathbf{r}_{j\neq i}\\
     \mathbf{\Sigma}^{[i]} &= \sigma_i^2 - \mathbf{DB}^{-1}\mathbf{D}^\top
-\end{align*} 
+\end{align} 
 where $\sigma_i^2$ is the $i$-th diagonal element of $\mathbf{\Sigma}$, and $\mathbf{D} = \mathbf{\Sigma}_{row=i,col\neq i}$ and 
 $\mathbf{B} = \mathbf{\Sigma}_{row\neq i, col\neq i}$.\footnote{In other words, $\mathbf{D}$ is a 1$\times (N-1)$ matrix corresponding to the $i$-th row 
 of $\mathbf{\Sigma}$ but excluding the $i$-th column. $\mathbf{B}$ is $\mathbf{\Sigma}$ excluding the $i$-th row and $i$-th column.}
