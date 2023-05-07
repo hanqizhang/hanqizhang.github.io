@@ -9,7 +9,7 @@ tags:
 ---
 
 
-The original paper was published at the NeurIPS 2014 conference by Hennequin, Aitchison and Lengyel. Last semester, 
+The original [paper](https://papers.nips.cc/paper/5265-fast-sampling-based-inference-in-balanced-neuronal-networks) was published at the NeurIPS 2014 conference by Hennequin, Aitchison and Lengyel. Last semester, 
 I reviewed this paper together with Jeong Woo Kim, a colleague at NYU, with the goal of reproducing all simulation results 
 provided in the main figures except for the part regarding Dale's Law. We also aim to explain key concepts in a manner that 
 elucidates the high-level structure of the paper and clarifies the key logical connections among sections of the paper. On a 
@@ -101,8 +101,8 @@ $$
 
 A nuanced distinction between the notation for the network and the notation in the inference problem description is that we will design 
 the network such that the recurrent neurons $\mathbf{r}$ have a stationary distribution matching the posterior distribution $p(\mathbf{r}|\mathbf{h})$ 
-described in section \ref{sec: inference}, not the marginal distribution $p(\mathbf{r})$. We will explain how to design the weights to achieve 
-this in section \ref{sec: control}.
+described in the inference problem, not the marginal distribution $p(\mathbf{r})$. Later, we will explain how to design the weights to achieve 
+this..
 
 The Wiener process, $d\mathbf{\xi}$, of unit variance can be rewritten as, $d\mathbf{\xi}(t) = \sqrt{dt} \mathcal{N}(0,1)$. Then, the stationary 
 distribution of $\mathbf{r}$ is when $\mathbb{E}(d\mathbf{r}) = 0$:
@@ -124,7 +124,7 @@ Realizing that Eq.\eqref{sde1}'s discrete-time version is essentially
 an AR1 process is greatly helpful for intuitively understanding the dynamics of the network. It also simplifies our explanation of the control 
 theory references in the paper that the authors used to explain how the network's stationary mean $\mathbf{\mu^r}$ and covariance $\mathbf{\Sigma^r}$ are 
 able to match the target posterior  $\mathbf{\mu}$ and $\mathbf{\Sigma}$. Therefore, here we will base our explanation in the discrete-time context, and 
-the conclusions will be convertible to the continuous-time version by following a simple process outlined [here]().
+the conclusions will be convertible to the continuous-time version by following a simple process outlined [here](https://en.wikipedia.org/wiki/Lyapunov_equation).
 
 The AR1 process that corresponds to Eq.\eqref{sde1} is:
 $$
@@ -147,11 +147,13 @@ $$
 $$
 Eq.\eqref{eqn: lyap-discrete}, called the discrete Lyapunov equation, is thus derived. This can be converted to the continuous-time version by 
 the derivation discussed in \cite{wikipedia}, and then the Lyapunov equation becomes:
+
 $$
 \begin{equation}
     (\mathbf{W}-\mathbf{I})^\top \mathbf{\Sigma^r} + \mathbf{\Sigma^r}(\mathbf{W}-\mathbf{I}) + 2\sigma^2_{\xi} \mathbf{I} = 0 \label{eqn: lyap-cont}
 \end{equation}
 $$
+
 Now, through $\mathbf{W}$, $\mathbf{F}$ and $\sigma_{\xi}$, we have control over the stationary distribution covariance as in Eq.\eqref{eqn: lyap-cont} 
 as well as over the stationary distribution mean as in Eq.\eqref{eqn: mu}. For the network to fulfill its promise, our goal is to find $\mathbf{W}$, 
 $\mathbf{F}$ and $\sigma_{\xi}$ such that the solutions $\mathbf{\Sigma^r}$ and $\mathbf{\mu^r}(\mathbf{h})$ to Eq.\eqref{eqn: mu} and Eq.\eqref{eqn: lyap-cont} 
@@ -176,7 +178,7 @@ $$
 as long as $\mathbf{r}|\mathbf{h}$ is Gaussian. This is verifiable by plugging in the Gaussian pdf for $p(\mathbf{r}|\mathbf{h})$ to the above equation.
 
 However, the authors were able to derive that LS is very slow. We will skip the derivations as they are not the main focus of the paper and do 
-not hinder our understanding of sampling speed. In \ref{sec: speed} we will discuss what slowness means and how it is measured. In the Experimental 
+not hinder our understanding of sampling speed. Next section, we will discuss what slowness means and how it is measured. In the Experimental 
 Evaluation section, we will show numerically evaluated estimations and simulation results that demonstrate how slow LS is.
 
 Despite being slow, the LS solution provides a good starting point to find more general solutions that might make sampling faster. And indeed we can verify that any $\mathbf{W}$ of the following form is also a solution to Eq.\eqref{eqn: lyap-cont} with $\mathbf{\Sigma^r}$ set to $\mathbf{\Sigma}$ being the target posterior covariance matrix.
@@ -224,8 +226,7 @@ $$
 ***Sampling Algorithms.***
 
 Once we have optimized for $\mathbf{W}$, we can plug it in the sampling algorithm to simulate the samples generated from the recurrent network. 
-The simulation results help visualize the sampling behavior and empirically analyzing how sampling is sped up, which will be shown in 
-Section \ref{sec: Experimental Evaluation}. Here we describe the sampling algorithms.
+The simulation results help visualize the sampling behavior and empirically analyzing how sampling is sped up, which will look like figure 4 of the original paper. Here we describe the sampling algorithms.
 
 ***Sampling for Eq.\eqref{sde1}.*** Eq.\eqref{sde1} can be discretized using the Euler-Maruyama method, and be written as:
 $$
@@ -246,7 +247,7 @@ $$
     &\mathbf{r}(k) = \mathbf{r}(k-1) + \frac{dt}{\tau_m}[-\mathbf{r}(k-1) + \mathbf{Wr}(k-1)] + \sigma_{\xi}\sqrt{\frac{2dt}{\tau_m}}\mathbf{\eta}(k)
 \end{align}
 $$
-- **Output:** K samples $${\{\mathbf{r}(1), ..., \mathbf{r}(K)\}}$$ from the posterior: $${\mathbf{r|h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})}$$
+- **Output:** K samples $${\{\mathbf{r}(1), ..., \mathbf{r}(K)\}}$$ from the posterior: $${\mathbf{r}|mathbf{h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})}$$
 
 
 ***Gibbs sampling.*** We also compare the above sampling technique with Gibbs Sampling. Gibbs Sampling samples the posterior 
