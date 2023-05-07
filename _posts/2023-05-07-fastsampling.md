@@ -44,7 +44,7 @@ algorithms for speed optimization. At the end of this section, we also list the 
 
 The inference problem itself does not have temporal dynamics, since we are interested only in 
 the short time frame within which the brain quickly carries out an inference from some observed input that can be considered static within that i
-nstant. Hence we denote the latent variable ${\mathbf{r}_\bullet}$ and the observation or input ${\mathbf{h}_\bullet}$. The generative model is as follows, 
+nstant. Hence we denote the latent variable $${\mathbf{r}_\bullet}$$ and the observation or input $$\mathbf{h}_.$$. The generative model is as follows, 
 where $\mathbf{C}$ and $\mathbf{A}$ are taken as given:
 \begin{align*}
     % p(\mathbf{r}) &= \mathcal{N}(r; 0, C)\\
@@ -67,12 +67,12 @@ $p(\mathbf{h}|\mathbf{r}) = \mathcal{N}(\mathbf{h}; \mathbf{Ar}, \sigma_h^2\math
 \end{align*}
 With this, we can multiply the multiply the densities to obtain $p(\mathbf{r}|\mathbf{h})$ using the Gaussian identity for the multiplication of two 
 Gaussian pdfs:
-\begin{aligned}
+\begin{align*}
     p(\mathbf{r}|\mathbf{h}) &\propto p(\mathbf{h}|\mathbf{r})p(\mathbf{r}) = \mathcal{N}(\mathbf{\mu},\mathbf{\Sigma})\nonumber\\
     \mathbf{\mu} &= \mathbf{\Sigma}(\mathbf{A}^\top \mathbf{A}/\sigma_h^2)(\mathbf{A}^\top \mathbf{A})^{-1}\mathbf{A}^\top \mathbf{h} \nonumber\\
         &= \mathbf{\Sigma} \mathbf{A}^\top \mathbf{h}/\sigma_h^2 \label{eqn: mu-target}\\
     \mathbf{\Sigma} &= (\mathbf{C}^{-1}+ \mathbf{A}^\top \mathbf{A}/\sigma_h^2)^{-1} \label{eqn: Sigma-target}
-\end{aligned}
+\end{align*}
 Here, it is important to note that only the mean of the posterior depends on $\mathbf{h}$, while the covariance matrix does not. When analyzing 
 the sampling speed, this property will allow us to set $\mathbf{h}$ to zero without loss of generality.
 
