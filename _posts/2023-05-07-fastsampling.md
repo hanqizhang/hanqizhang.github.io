@@ -112,7 +112,7 @@ $$
     0 &= \frac{dt}{\tau_m} \mathbb{E} \left( (-\mathbf{I} + \mathbf{W}) \mathbf{r}(t) + \mathbf{Fh} \right) + \sigma_{\xi} \sqrt{\frac{2}{\tau_m}} \cdot \sqrt{dt} \cdot 0 \\
     0 &= \frac{dt}{\tau_m} \left( (-\mathbf{I}+\mathbf{W})\mathbb{E}(\mathbf{r}(t)) + \mathbf{Fh} \right) \\
     (-\mathbf{I}+\mathbf{W}) \mathbf{\mu}^{\mathbf{r}} &= -\mathbf{Fh} \\
-    \mathbf{\mu}^\mathbf{r}(\mathbf{h}) &= (\mathbf{I}-\mathbf{W})^{-1}\mathbf{Fh} \numberthis \label{eqn: mu}
+    \mathbf{\mu}^\mathbf{r}(\mathbf{h}) &= (\mathbf{I}-\mathbf{W})^{-1}\mathbf{Fh} \label{eqn: mu}
 \end{align}
 $$
 And the covariance of the stationary distribution is $\mathbf{\Sigma^r} = \langle(\mathbf{r}(t)-\mathbf{\mu^r})(\mathbf{r}(t)-\mathbf{\mu^r})^\top \rangle_t $.
@@ -133,7 +133,7 @@ $$
 \end{align}
 $$
 where $\mathbf{\eta}(t)$ is white noise with covariance $\mathbf{I}$. As long as a stationary distribution exists for  $\mathbf{r}$, its covariance 
-matrix $\mathbf{\Sigma^r}$ is related to the covariance matrix $\sigma^2_{\xi}\mathbf{I}$ of the noise input as follows:
+matrix $\mathbf{\Sigma^r}$ is related to the covariance matrix $$\sigma^2_{\xi}\mathbf{I}$$ of the noise input as follows:
 $$
 \begin{align}
     \mathbf{\Sigma^r} &= \mathbb{E}(\mathbf{r}(t+1)\mathbf{r}(t+1)^\top)\\
@@ -243,7 +243,7 @@ Sampling from the posterior by linear stochastic recurrent dynamics
     &\text{Generate } \mathbf{\eta}(k) \sim \mathcal{N}(0,1) \\
     &\mathbf{r}(k) = \mathbf{r}(k-1) + \frac{dt}{\tau_m}[-\mathbf{r}(k-1) + \mathbf{Wr}(k-1)] + \sigma_{\xi}\sqrt{\frac{2dt}{\tau_m}}\mathbf{\eta}(k)
 \end{align}
-- **Output:** K samples $$\{\mathbf{r}(1), ..., \mathbf{r}(K)\}$$ from the posterior: $$\mathbf{r|h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})$$
+- **Output:** K samples $${\{\mathbf{r}(1), ..., \mathbf{r}(K)\}}$$ from the posterior: $${\mathbf{r|h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})}$$
 
 
 ***Gibbs sampling.*** We also compare the above sampling technique with Gibbs Sampling. Gibbs Sampling samples the posterior 
@@ -259,4 +259,4 @@ $$
 $$
 where $\sigma_i^2$ is the $i$-th diagonal element of $$\mathbf{\Sigma}$$, and $$\mathbf{D} = \mathbf{\Sigma}_{row=i,col\neq i}$$ and 
 $$\mathbf{B} = \mathbf{\Sigma}_{row\neq i, col\neq i}$$. In other words, $$\mathbf{D}$$ is a 1$\times (N-1)$ matrix corresponding to the $i$-th row 
-of $$\mathbf{\Sigma}$$ but excluding the $i$-th column. $$\mathbf{B}$ is $\mathbf{\Sigma}$$ excluding the $i$-th row and $i$-th column.
+of $$\mathbf{\Sigma}$$ but excluding the $i$-th column. $$\mathbf{B}$$ is $$\mathbf{\Sigma}$$ excluding the $i$-th row and $i$-th column.
