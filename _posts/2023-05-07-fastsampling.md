@@ -141,7 +141,7 @@ $$
     &= \mathbb{E}((\mathbf{Wr}(t)+\mathbf{Fh})(\mathbf{Wr}(t)+\mathbf{Fh})^\top) + \mathbb{E}((\mathbf{Wr}(t)+\mathbf{Fh})\sigma_{\xi} \mathbf{\eta}(t)^\top) + ...\\
     &\ \ \ \ \ \ \ \ \ \ \ \mathbb{E}(\sigma_{\xi} \mathbf{\eta}(t)(\mathbf{Wr}(t)+\mathbf{Fh})^\top) + \sigma^2_{\xi}\mathbb{E}(\mathbf{\eta}(t)\mathbf{\eta}(t)^\top)\\
     &= \mathbf{W\Sigma^rW}^\top + 0 + 0 + \sigma^2_{\xi}\mathbf{I} \\
-    \mathbf{\Sigma^r} &= \mathbf{W\Sigma^rW}^\top + \sigma^2_{\xi}\mathbf{I} \numberthis \label{eqn: lyap-discrete}
+    \mathbf{\Sigma^r} &= \mathbf{W\Sigma^rW}^\top + \sigma^2_{\xi}\mathbf{I} \label{eqn: lyap-discrete}
 \end{align}
 $$
 Eq.\eqref{eqn: lyap-discrete}, called the discrete Lyapunov equation, is thus derived. This can be converted to the continuous-time version by 
@@ -239,10 +239,12 @@ Sampling from the posterior by linear stochastic recurrent dynamics
 - Compute the weight matrix $\mathbf{W} = \mathbf{I} + (-\sigma_{\xi}^2\mathbf{I} + \mathbf{S})\mathbf{\Sigma}^{-1}$
 - Generate initial sample $\mathbf{r}(0) = 0$
 - For $k=1,2,...,K$:
+$$
 \begin{align}
-    &\text{Generate } \mathbf{\eta}(k) \sim \mathcal{N}(0,1) \\
+    &\text{Generate } \mathbf{\eta}(k) \sim \mathcal{N}(0,1)\\
     &\mathbf{r}(k) = \mathbf{r}(k-1) + \frac{dt}{\tau_m}[-\mathbf{r}(k-1) + \mathbf{Wr}(k-1)] + \sigma_{\xi}\sqrt{\frac{2dt}{\tau_m}}\mathbf{\eta}(k)
 \end{align}
+$$
 - **Output:** K samples $${\{\mathbf{r}(1), ..., \mathbf{r}(K)\}}$$ from the posterior: $${\mathbf{r|h}=0 \sim \mathcal{N}(0, \mathbf{\Sigma})}$$
 
 
