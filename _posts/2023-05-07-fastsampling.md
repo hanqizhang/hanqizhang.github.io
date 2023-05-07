@@ -48,15 +48,9 @@ nstant. Hence we denote the latent variable $${\mathbf{r}_\bullet}$$ and the obs
 where $\mathbf{C}$ and $\mathbf{A}$ are taken as given:
 $$
 \begin{align}
-    % p(\mathbf{r}) &= \mathcal{N}(r; 0, C)\\
-    % p(h|r) &= \mathcal{N}(h; Ar, \sigma_h^2I)\\
     \mathbf{r_\bullet} &\sim \mathcal{N}(0, \mathbf{C})\\
     \mathbf{h_\bullet} &= \mathbf{A}\mathbf{r_\bullet} + \mathbf{v_\bullet}\\
     \mathbf{v_\bullet} &\sim \mathcal{N}(0, \sigma^2\mathbf{I})
-    % \mathbf{h_\bullet} &\sim \mathcal{N}(0, \mathbf{ACA^\top} + \sigma^2\mathbf{I})\\
-    % \mathbf{r|h} &\sim \mathcal{N}(\boldsymbol{\mu}, \mathbf{\Sigma})\\
-    % \boldsymbol{\mu} &= \mathbf{\Sigma A}^\top \mathbf{h}/\sigma^2\\
-    % \mathbf{\Sigma} &= (\mathbf{C}^{-1}+ \mathbf{A}^\top \mathbf{A}/\sigma^2)^{-1}
 \end{align}
 $$
 As the latent variable is static and the noise $\mathbf{v}$ is spherical, this is essentially a sensible PCA problem. We can compute the posterior u
