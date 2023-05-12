@@ -78,9 +78,12 @@ brain samples from the posterior distribution.
 
 ***Linear Stochastic Recurrent Dynamics.*** 
 
+<p align="center">
 <img src="/images/hennequin_etal_fig1.png"
      alt="network"
+     width="30%"
      style="clear: both; margin-right: 10px;" />
+</p>
 
 As shown in Fig.1 of the original paper, one can construct a linear network of recurrently connected neurons, $\mathbf{r}$, 
 where the recurrent weights are $\mathbf{W}$. They receive feed-forward input from $\mathbf{h}$ with weight matrix $\mathbf{F}$. At the same time, 
