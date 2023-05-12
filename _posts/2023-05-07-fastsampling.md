@@ -17,8 +17,8 @@ lower level, we fill in the intermediate steps of derivations in the paper where
 
 **1. Introduction**
 
-In probabilistic inference problems, sampling-based methods simplify computations on complex distributions, as we have seen in 
-algorithms like particle filtering. Not surprisingly, in neuroscience, the neural sampling hypothesis states that the brain also 
+In probabilistic inference problems, sampling-based methods simplify computations on complex distributions (e.g., in 
+algorithms like particle filtering). Not surprisingly, in neuroscience, the neural sampling hypothesis states that the brain also 
 performs inference by generating sequences of samples from high-dimensional posterior distributions, implemented through neural 
 circuitry. In this context, each sample is represented by the instantaneous activity levels (e.g. a vector of membrane potentials or 
 firing rates) of a population of neurons. 
@@ -26,14 +26,10 @@ firing rates) of a population of neurons.
 However, existing neurophysiologically-plausible sampling methods suffer from low sampling speed, failing to account for the brain's 
 ability to perform relatively accurate inference within a behavioral time scale. For sampling to be fast, the neuronal population needs 
 to produce uncorrelated samples within a small number of time steps, so that the sequence of samples generated throughout a short time 
-window is able to well approximate the target distribution. With this goal in mind, Hennequin et al set out to improve the an existing 
+window is able to well approximate the target distribution. With this goal in mind, Hennequin et al set out to improve an existing 
 sampling method, Langevin Sampling (LS), and were able to achieve significantly faster sampling.
 
-This report will explain the key concepts and derivations of the original paper, drawing connections to concepts learned in class wherever 
-helpful. The code for the paper is not publicly available, so this makes it a more meaningful practice for us to write our own simulations 
-and optimizations in Python to reproduce all the figures in the paper. 
-
-**2. Problem Definition and Algorithm**
+**2. Problem Definition and Theoretical Details**
 
 In short, the objective is to increase the sampling speed of a neuronal network which generates samples from the target posterior distribution 
 of an underlying inference problem. We first describe the underlying inference problem, and then explain how to construct 
@@ -82,7 +78,7 @@ brain samples from the posterior distribution.
 
 ***Linear Stochastic Recurrent Dynamics.*** 
 
-As shown in Fig.1, we construct a linear network of recurrently connected neurons, $\mathbf{r}$, 
+As shown in Fig.1 of the original paper, one can construct a linear network of recurrently connected neurons, $\mathbf{r}$, 
 where the recurrent weights are $\mathbf{W}$. They receive feed-forward input from $\mathbf{h}$ with weight matrix $\mathbf{F}$. At the same time, 
 $\mathbf{r}$ also receives external noise $\mathbf{\xi}$. The corresponding network dynamics is described below. 
 <!-- \begin{figure}[h]
@@ -223,7 +219,7 @@ $$
 \end{equation}
 $$
 
-***Sampling Algorithms.***
+**3. Additional Notes - Sampling Algorithms.**
 
 Once we have optimized for $\mathbf{W}$, we can plug it in the sampling algorithm to simulate the samples generated from the recurrent network. 
 The simulation results help visualize the sampling behavior and empirically analyzing how sampling is sped up, which will look like figure 4 of the original paper. Here we describe the sampling algorithms.
