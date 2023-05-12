@@ -78,16 +78,13 @@ brain samples from the posterior distribution.
 
 ***Linear Stochastic Recurrent Dynamics.*** 
 
+<img src="/images/hennequin_etal_fig1.png"
+     alt="network"
+     style="clear: both; margin-right: 10px;" />
+
 As shown in Fig.1 of the original paper, one can construct a linear network of recurrently connected neurons, $\mathbf{r}$, 
 where the recurrent weights are $\mathbf{W}$. They receive feed-forward input from $\mathbf{h}$ with weight matrix $\mathbf{F}$. At the same time, 
 $\mathbf{r}$ also receives external noise $\mathbf{\xi}$. The corresponding network dynamics is described below. 
-<!-- \begin{figure}[h]
-\begin{center}
-  \includegraphics[width=1.5 in]{network.png}   
-\end{center}
-  \caption{Recurrent neuronal network}
-  \label{fig:network}
-\end{figure} -->
 
 $$
 \begin{equation}
