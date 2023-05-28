@@ -10,6 +10,4 @@ redirect_from:
 
 PhD student of neuroscience at [NYU](https://shanghai.nyu.edu/academics/graduate/neural-science-phd-program) (Shanghai track, advised by [Sukbin Lim](https://shanghai.nyu.edu/academics/faculty/directory/sukbin-lim)). I did my master's at [UChicago](https://masters.cs.uchicago.edu/) computer science, advised by [Yuxin Chen](https://yuxinchen.org). At NYU, I did my rotations with [Marisa Carrasco](https://carrascolab.hosting.nyu.edu), [Alex Reyes](https://www.cns.nyu.edu/~reyes/), and [Cristina Savin](https://csavin.wixsite.com/savinlab).
 
-My current research interest is neural representation and dynamics. I study neural network models to elucidate the neural mechanisms and normative principles behind perception and memory.
-
-There are two other topics that I have worked on a little bit and I still ponder over from time to time. One is how the brain represents uncertainty, in the framework of the Sampling Hypothesis. The other is an originally machine learning theory topic called "machine teaching" where we study how a teacher could efficiently train and influence a machine learner. I believe the idea of teaching is still relevant in neuroscience.
+My current research interest is in neural representation and dynamics. I study neural network models to elucidate the neural mechanisms and normative principles behind perception and memory.
