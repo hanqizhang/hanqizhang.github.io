@@ -38,7 +38,7 @@ In neuroscience the situation where we care about this information is when \\(r\
 To visualize the tuning transform and the noise in the same picture:
 <!-- ![tuning-noise](/images/tuning-noise.png) -->
 <figure>
-<img src="../noise-and-fisher-info/tuning-noise.png"
+<img src="/_posts/noise-and-fisher-info/tuning-noise.png"
      alt="tuning and noise"
      style="clear: both; margin-center: 0px;" />
 <figcaption>Fig 1. Tuning and noise.</figcaption>
