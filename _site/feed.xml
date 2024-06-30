@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2024-07-01T01:48:35+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Plain neurotheory</title><subtitle>一言Hanku on theoretical neuroscience and things like that</subtitle><author><name>Hank Zhang</name><email>hqzhang@nyu.edu</email></author><entry><title type="html">What do the retina and V1 know about spatial frequencies in natural scenes?</title><link href="http://localhost:4000/contrast-sensitivity/" rel="alternate" type="text/html" title="What do the retina and V1 know about spatial frequencies in natural scenes?" /><published>2024-06-26T00:00:00+08:00</published><updated>2024-06-26T00:00:00+08:00</updated><id>http://localhost:4000/contrast-sensitivity</id><content type="html" xml:base="http://localhost:4000/contrast-sensitivity/"><![CDATA[<p>Take a look at the picture below. Focus on how far up on the picture does the grating seem to disappear. It is different at different spatial frequencies, and traces out a curve, depending on how far away you are viewing the image. (Try zooming out or zooming in, and at some point the boundary between the visible and the invisible will match the yellow curve.)</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2024-07-01T02:47:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Plain neurotheory</title><subtitle>一言Hanku on theoretical neuroscience and things like that</subtitle><author><name>Hank Zhang</name><email>hqzhang@nyu.edu</email></author><entry><title type="html">What do the retina and V1 know about spatial frequencies in natural scenes?</title><link href="http://localhost:4000/contrast-sensitivity/" rel="alternate" type="text/html" title="What do the retina and V1 know about spatial frequencies in natural scenes?" /><published>2024-06-26T00:00:00+08:00</published><updated>2024-06-26T00:00:00+08:00</updated><id>http://localhost:4000/contrast-sensitivity</id><content type="html" xml:base="http://localhost:4000/contrast-sensitivity/"><![CDATA[<p>Take a look at the picture below. Focus on how far up on the picture does the grating seem to disappear. It is different at different spatial frequencies, and traces out a curve, depending on how far away you are viewing the image. (Try zooming out or zooming in, and at some point the boundary between the visible and the invisible will match the yellow curve.)</p>
 
 <figure>
 <p align="middle">
-<img src="/contrast-sensitivity/csf.png" alt="csf" width="60%" />
+<img src="/_posts/contrast-sensitivity/csf.png" alt="csf" width="60%" />
 </p>
 <figcaption>Fig 1. The psychophysical contrast sensitivity function (adapted from Campbell &amp; Robson 1968).</figcaption>
 </figure>
@@ -61,7 +61,7 @@ which is flat, accomplishing <em>whitening</em> of the visual input. This can be
 
 <figure>
 <p align="middle">
-<img src="/contrast-sensitivity/csf_v1sim_panel.png" alt="sim_panel" width="100%" />
+<img src="/_posts/contrast-sensitivity/csf_v1sim_panel.png" alt="sim_panel" width="100%" />
 </p>
 <figcaption>Fig 2. (Clockwise) (A) Optimization results for an approximately efficient tuning profile. (B) Assumed V1 CSF. (C) Target vs. simulated FI profiles. (D) Distribution of 100 neurons' preferred spatial frequencies. </figcaption>
 </figure>
@@ -84,8 +84,8 @@ which is flat, accomplishing <em>whitening</em> of the visual input. This can be
 
 <figure>
 <p align="middle">
-<img src="/efficient-coding-orien/orien-image.png" alt="orientation natural scene" width="40%" /> 
-<img src="/efficient-coding-orien/orien-prior.png" alt="orientation distr" width="40%" />
+<img src="/_posts/efficient-coding-orien/orien-image.png" alt="orientation natural scene" width="40%" /> 
+<img src="/_posts/efficient-coding-orien/orien-prior.png" alt="orientation distr" width="40%" />
 </p>
 <figcaption>Fig 1. Orientation distribution in natural scenes (adapted from Girschick et al).</figcaption>
 </figure>
@@ -118,9 +118,9 @@ which is flat, accomplishing <em>whitening</em> of the visual input. This can be
 
 <figure>
 <p align="middle">
-<img src="/efficient-coding-orien/orientuning_0.png" width="32%" /> 
-<img src="/efficient-coding-orien/orientuning_1.png" width="32%" />
-<img src="/efficient-coding-orien/orientuning_3.png" width="32%" />
+<img src="/_posts/efficient-coding-orien/orientuning_0.png" width="32%" /> 
+<img src="/_posts/efficient-coding-orien/orientuning_1.png" width="32%" />
+<img src="/_posts/efficient-coding-orien/orientuning_3.png" width="32%" />
 </p>
 <figcaption>Fig 2. Orientation tunings satisfying the efficient coding objective. In row 2, the actual FI profile is in blue, closely matching the target profile in gray.</figcaption>
 </figure>
@@ -139,7 +139,7 @@ which is flat, accomplishing <em>whitening</em> of the visual input. This can be
 
 <figure>
 <p align="middle">
-<img src="/efficient-coding-orien/joint_prior.png" width="40%" /> 
+<img src="/_posts/efficient-coding-orien/joint_prior.png" width="40%" /> 
 </p>
 <figcaption>Fig 3. Joint power spectrum of frequency and orientation for natural scenes, adapted from Torralba &amp; Oliva. The amplitude spectrum can be seen as a proxy for the prior distribution in natural scenes.</figcaption>
 </figure>
@@ -171,7 +171,7 @@ where the second equality is based on the equivalence relation between \(Var(.)\
 <p>To visualize the tuning transform and the noise in the same picture:
 <!-- ![tuning-noise](/images/tuning-noise.png) --></p>
 <figure>
-<img src="/noise-and-fisher-info/tuning-noise.png" alt="tuning and noise" style="clear: both; margin-center: 0px;" />
+<img src="/_posts/noise-and-fisher-info/tuning-noise.png" alt="tuning and noise" style="clear: both; margin-center: 0px;" />
 <figcaption>Fig 1. Tuning and noise.</figcaption>
 </figure>
 

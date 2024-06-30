@@ -22,9 +22,9 @@ author:
 
 # URL settings
 url: "https://hanqizhang.github.io" #
-baseurl:
+baseurl: ""
 permalink: /:title/
-google_analytics: # leave it blank if not wish
+google_analytics: "3nddtc5_7VVzxN8M3C5cgZ3n3XJTgz0YeKDbSaW3cJc"# leave it blank if not wish
 fb_appid:
 
 # Collection setting
