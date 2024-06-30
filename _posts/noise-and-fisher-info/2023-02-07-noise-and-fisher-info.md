@@ -1,7 +1,7 @@
 ---
 title: Noise and two simplified forms of Fisher Information
 date: 2023-02-07
-modified: 2024-06-30
+modified: 2024-06-25
 tags: [neuroscience, perception]
 description: Orientation efficient coding.
 usemathjax: true
@@ -38,7 +38,7 @@ In neuroscience the situation where we care about this information is when \\(r\
 To visualize the tuning transform and the noise in the same picture:
 <!-- ![tuning-noise](/images/tuning-noise.png) -->
 <figure>
-<img src="/noise-and-fisher-info/tuning-noise.png"
+<img src="../noise-and-fisher-info/tuning-noise.png"
      alt="tuning and noise"
      style="clear: both; margin-center: 0px;" />
 <figcaption>Fig 1. Tuning and noise.</figcaption>

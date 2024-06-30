@@ -11,7 +11,7 @@ Take a look at the picture below. Focus on how far up on the picture does the gr
 
 <figure>
 <p align="middle">
-<img src="/contrast-sensitivity/csf.png"
+<img src="../contrast-sensitivity/csf.png"
      alt="csf"
      width="60%" />
 </p>
@@ -76,7 +76,7 @@ Given all the objectives and constraints, designing the desired tuning profile i
 
 <figure>
 <p align="middle">
-<img src="/contrast-sensitivity/csf_v1sim_panel.png"
+<img src="../contrast-sensitivity/csf_v1sim_panel.png"
      alt="sim_panel"
      width="100%" />
 </p>
