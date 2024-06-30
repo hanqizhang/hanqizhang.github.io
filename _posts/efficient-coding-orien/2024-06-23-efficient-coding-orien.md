@@ -17,10 +17,10 @@ Statistically speaking, in the natural environment, the orientations of local st
 
 <figure>
 <p align="middle">
-<img src="/_posts/efficient-coding-orien/orien-image.png"
+<img src="{{site.url}}/_posts/efficient-coding-orien/orien-image.png"
      alt="orientation natural scene"
      width="40%" /> 
-<img src="/_posts/efficient-coding-orien/orien-prior.png"
+<img src="{{site.url}}/_posts/efficient-coding-orien/orien-prior.png"
      alt="orientation distr"
      width="40%" />
 </p>
@@ -57,11 +57,11 @@ In figure 2 below, profiles 1 and 2 (identified in [Wei & Stocker 2015](https://
 
 <figure>
 <p align="middle">
-<img src="/_posts/efficient-coding-orien/orientuning_0.png"
+<img src="{{site.url}}/_posts/efficient-coding-orien/orientuning_0.png"
      width="32%" /> 
-<img src="/_posts/efficient-coding-orien/orientuning_1.png"
+<img src="{{site.url}}/_posts/efficient-coding-orien/orientuning_1.png"
      width="32%" />
-<img src="/_posts/efficient-coding-orien/orientuning_3.png"
+<img src="{{site.url}}/_posts/efficient-coding-orien/orientuning_3.png"
      width="32%" />
 </p>
 <figcaption>Fig 2. Orientation tunings satisfying the efficient coding objective. In row 2, the actual FI profile is in blue, closely matching the target profile in gray.</figcaption>
@@ -83,7 +83,7 @@ Note that \eqref{eq7} is only equal to \eqref{eq1} when we assume that either $$
 
 <figure>
 <p align="middle">
-<img src="/_posts/efficient-coding-orien/joint_prior.png"
+<img src="{{site.url}}/_posts/efficient-coding-orien/joint_prior.png"
      width="40%" /> 
 </p>
 <figcaption>Fig 3. Joint power spectrum of frequency and orientation for natural scenes, adapted from Torralba & Oliva. The amplitude spectrum can be seen as a proxy for the prior distribution in natural scenes.</figcaption>
