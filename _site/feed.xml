@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2024-07-01T01:48:35+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Plain neurotheory</title><subtitle>一言Hanku on theoretical neuroscience and things like that</subtitle><author><name>Hank Zhang</name><email>hqzhang@nyu.edu</email></author><entry><title type="html">What do the retina and V1 know about spatial frequencies in natural scenes?</title><link href="http://localhost:4000/contrast-sensitivity/" rel="alternate" type="text/html" title="What do the retina and V1 know about spatial frequencies in natural scenes?" /><published>2024-06-26T00:00:00+08:00</published><updated>2024-06-26T00:00:00+08:00</updated><id>http://localhost:4000/contrast-sensitivity</id><content type="html" xml:base="http://localhost:4000/contrast-sensitivity/"><![CDATA[<p>Take a look at the picture below. Focus on how far up on the picture does the grating seem to disappear. It is different at different spatial frequencies, and traces out a curve, depending on how far away you are viewing the image. (Try zooming out or zooming in, and at some point the boundary between the visible and the invisible will match the yellow curve.)</p>
+
+<figure>
+<p align="middle">
+<img src="/contrast-sensitivity/csf.png" alt="csf" width="60%" />
+</p>
+<figcaption>Fig 1. The psychophysical contrast sensitivity function (adapted from Campbell &amp; Robson 1968).</figcaption>
+</figure>
+
+<p>This inverted U-shaped curve, called the contrast sensitivity function (CSF), basically describes the phenomenon that our sensitivity to the middle frequency gratings is the strongest, but as we go from middle to the sides to higher or lower frequencies, our ability to detect the gratings get worse.</p>
+
+<p>Sensitivity and detection threshold are concepts on two sides of a coin. Low sensitivity means that the detection threshold (the contrast above which the signal is detectable) is high. At any spatial frequency, contrast sensitivity is the inverse of contrast detection threshold.</p>
+
+<p>The right half’s downward trend is somewhat expected since our photoreceptors are physically limited to have finite fidelity or a “cutoff frequency”. But the other half is more puzzling. <strong>Here, I’m going to introduce a theoretical explanation and propose a neural mechanism for the left half of the shape</strong> which is an upward trending, almost straight line.</p>
+
+<p><strong>The Retina</strong></p>
+
+<p><a href="https://redwood.berkeley.edu/wp-content/uploads/2018/08/Atick-Redlich-NC92.pdf">Atick and Redlich</a> (1992) identified an interesting coincidence between the lower frequency range of the CSF and the <em>spatial power spectrum</em> calculated by Field for natural images. Think of the “power” here as a meaasure of how correlated the brightness of the pixels are locally in an image. It turns out that it is high for low frequencies and low for high frequencies, and when plotted against frequency on a log-log scale, it forms a negatively sloped straight line:
+\(\begin{align}
+    R(\mathbf{f}) = 1/\mathbf{f}^2\label{eq1}\tag{1}
+\end{align}\)
+where \(\mathbf{f}\) is spatial frequency and \(R(\mathbf{f})\) is the Fourier transform, \(\int{d\mathbf{x}e^{i\mathbf{fx}}R(\mathbf{x})}\), of the autocorrelation of luminance between two points on an image: \(R(\mathbf{x}_1, \mathbf{x}_2)\). Assuming the relation between two arbitrary points anywhere in a natural scene is roughly homogeneous, this autocorrelator is then a function of only the distance between two points:
+\(\begin{align}
+    R\left(\mathbf{x}_1 = (x_1,y_1), \mathbf{x}_2 = (x_2,y_2)\right) &amp;= \langle L(\mathbf{x}_1)L(\mathbf{x}_2)\rangle \\
+     &amp;= R\left(\mathbf{x} = \mathbf{x}_1 - \mathbf{x}_2\right) \label{eq2}\tag{2}
+\end{align}\)</p>
+
+<p>Atick and Redlich noticed that the psychophysical CSF multiplied with the amplitude spectrum \(\sqrt{R(\mathbf{f})}\) makes a flat curve in the low frequency range. They went on to reason from the mechanism of the retinal ganglion cells that if we assume that all RGCs work as filters with linear kernels, meaning that the luminance outputs of the retina are \(O(\mathbf{x}_j) = \int{d\mathbf{x}_iK(\mathbf{x}_j-\mathbf{x}_i)L(\mathbf{x}_i)}\), then in frequency space the \(K(\mathbf{f})\) is a bandpass filter. Could this be what determines the shape of the psychophysical CSF?</p>
+
+<p>Back then they did not have the experimental data of the retinal CSF (the actual RGC bandpass filter), so they proposed that theoretically it would be nice for the retinal CSF to have the same shape as the psychopysical CSF. Because</p>
+
+<p>1) the output power spectrum of the retina (averaged over trials) would be 
+\(\begin{align}
+    \langle O(\mathbf{f})O^*(\mathbf{f})\rangle &amp;= \langle(K(\mathbf{f})L(\mathbf{f}))(K(\mathbf{f})L(\mathbf{f}))^*\rangle \label{eq3}\tag{3}\\
+        &amp;= \langle L(\mathbf{f})L^*(\mathbf{f})\rangle \langle K(\mathbf{f})K^*(\mathbf{f})\rangle \label{eq4}\tag{4}\\
+        &amp;= R(\mathbf{f}) \left(CSF(\mathbf{f})\right)^2 \label{eq5}\tag{5}
+\end{align}\)
+which is flat, accomplishing <em>whitening</em> of the visual input. This can be understood as decorrelation, since \(\langle O(\mathbf{f})O^*(\mathbf{f})\rangle\) being constant in the frequency domain means that in the spatial domain it is a delta function: \(\langle O(\mathbf{x}_i)O^*(\mathbf{x}_j) \rangle \sim \delta_{ij}\). Reducing correlation is consistent with the redundancy reduction idea by Barlow, which is an efficient coding strategy;</p>
+
+<p>2) they would have found a normative explanation for the upward sloping part of the psychophysical CSF.</p>
+
+<p>However, as it turned out, the parvo and magno RGCs in the human and monkey retina were later found not to have such a significantly upward sloping CSF in the low frequency range but rather a quite flat one. So Atick and Redlich’s theory proved to be incorrect in attributing the whitening function to the retina. Nonetheless, their theory was useful in pointing out that the psychophysical CSF may serve the purpose of whitening visual input across spatial frequencies.</p>
+
+<p><strong>The Primary Visual Cortex (V1)</strong></p>
+
+<p>The next candidate in line to take credit for the psychophysical CSF is V1. If retina does not know whitening, then V1 probably has to. The question is how, and whether this redundancy reduction goal would be in conflict with the specific type of efficient coding strategy discussed in my previous post.</p>
+
+<p>To limit the scope of analysis, we have to make a simplifying assumption (but see e.g. <a href="https://www.sciencedirect.com/science/article/pii/S2211124722003540">Skyberg et al 2022</a>). Let’s assume that V1 processes all information across all spatial frequencie with the same speed at the same time.</p>
+
+<p>Now the question is: can V1 accomplish two objectives at once:</p>
+<ol>
+  <li>Whiten the spatial power spectrum (as in Atick &amp; Redlich)</li>
+  <li>Dedicate more encoding resources (Fisher Information) to the more prevalent spatial frequencies (as in Wei &amp; Stocker)</li>
+</ol>
+
+<p><strong>Objective 1 means</strong> that the V1 neurons preferring low spatial frequencies should have a peak firing rate that is lower than their high-frequency preferring colleagues, while <strong>objective 2 means</strong> that the low-frequency preferring V1 neurons should encode higher-fidelity information with the small range of firing rates they are left with due to objective 1. Specifically, assuming that the amplitude spectrum (\(1/f\)) is a good proxy for the prior distribution of spatial frequency in natural scenes, then Fisher Information (FI) should be allocated according to: \(J(f) \propto 1/f^2\).</p>
+
+<p>This immediately begins to seem like a demanding job for the low-frequency neurons. Now add that to the distribution of V1 neurons’ preferred spatial frequencies experimentally measured by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1193006/">Foster et al</a>, similar to the lower-left histogram in figure 2 below.</p>
+
+<p>Given all the objectives and constraints, designing the desired tuning profile is herculean task without the help of an algorithm. So I wrote one to find a solution for me. The optimization result is shown in figure 2, where the upper-left is the tuning profile, and the other subplots spell out the constraints and objectives that I used, consistent with what we have listed above.</p>
+
+<figure>
+<p align="middle">
+<img src="/contrast-sensitivity/csf_v1sim_panel.png" alt="sim_panel" width="100%" />
+</p>
+<figcaption>Fig 2. (Clockwise) (A) Optimization results for an approximately efficient tuning profile. (B) Assumed V1 CSF. (C) Target vs. simulated FI profiles. (D) Distribution of 100 neurons' preferred spatial frequencies. </figcaption>
+</figure>
+
+<p>I will share in a future post the code for the gradient descent algorithm I used and how I parameterized the tuning curves, but here suffice it to say that I abused the flexibility of the Beta distribution and added parameters for the base firing rates on the left and right edges of each tuning curve.</p>
+
+<p>Ignoring the FI profile beyond the cut-off frequencies, which is beyond the range in the histogram, the FI profile can come close to the target \(1/f^2\) shape, assuming Poisson noise. What the low-frequency preferring neurons lack in number, they make it up by inviting their higher-frequency preferring neighbors to extend their tuning farther into the low-frequency range. On the high-frequency extreme, though it is not the focus of this post, where low FI is needed, the neurons achieve it by increasing the base firing rate and thus decreasing the slope of the tuning curves in the high frequency direction.</p>
+
+<p>This goes to show that it is still possible, although demanding, for V1 to accomplish two efficient-coding related objectives at once, even without considering temporal dynamics.</p>
+
+<p>Finally, let’s come back to the initial assumption. In fact, experimentalists have demonstrated that our visual system probably processes spatial frequency information in a coarse-to-fine temporal sequence, which means that the high-frequency preferring neurons fire after the low-frequency preferring ones. This would break our initial assumption that has limited our analysis to a static one.</p>
+
+<p>So it may turn out that various temporal dynamics is the key to understanding what V1 really know about natural scenes. But that’s for another post to scratch the surface of.</p>]]></content><author><name>Hank Zhang</name><email>hqzhang@nyu.edu</email></author><category term="neuroscience" /><category term="perception" /><summary type="html"><![CDATA[CSF.]]></summary></entry><entry><title type="html">What does V1 know about orientations in natural scenes?</title><link href="http://localhost:4000/efficient-coding-orien/" rel="alternate" type="text/html" title="What does V1 know about orientations in natural scenes?" /><published>2024-06-23T00:00:00+08:00</published><updated>2024-06-23T00:00:00+08:00</updated><id>http://localhost:4000/efficient-coding-orien</id><content type="html" xml:base="http://localhost:4000/efficient-coding-orien/"><![CDATA[<p>Horace Barlow put forth the efficient coding hypothesis in 1961 which has proved to be fundamentally useful for understanding and modeling how the brain encodes sensory information. So useful, in fact, that it is now often referred to as the efficient coding theory, or the efficient coding principle instead.</p>
+
+<p>The principle suggests that under strict resource constraints, our sensory system must have become near-optimal in maximally preserving sensory information given the statistics of naturally occurring stimuli. In plain words, with the limited neuronal resources we have, we must have learned (through evolution, development, or adaptation) to be efficient in allocating these neurons for processing what we typically see, hear, touch, smell, etc., <em>in a given environment</em>.</p>
+
+<p>Let’s start with an example from vision to demonstrate how this idea is formalized, and to make the principle concrete.</p>
+
+<p>Statistically speaking, in the natural environment, the orientations of local structures in an image are not uniformly distributed. More structures are cardinal (vertical/horizontal) than oblique (45/135 deg) (see, e.g., <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3125404/#SD1">Girschick et al</a>).</p>
+
+<figure>
+<p align="middle">
+<img src="/efficient-coding-orien/orien-image.png" alt="orientation natural scene" width="40%" /> 
+<img src="/efficient-coding-orien/orien-prior.png" alt="orientation distr" width="40%" />
+</p>
+<figcaption>Fig 1. Orientation distribution in natural scenes (adapted from Girschick et al).</figcaption>
+</figure>
+
+<p>To maximize the encoding efficiency for orientation, the visual sytem should arrange its tuning curves to maximize a mutual information quantity \(I[\theta, r]\) which turns out can be written in terms of Fisher Information and the distribution of orientations in the environment:
+\(\begin{align}
+  I[\theta, r] &amp;= I[f(\theta), r] = H[r] - \int{d\tilde{\theta}p(\tilde{\theta})H[r|\tilde{\theta}]}\label{eq1}\tag{1}\\
+               &amp;= H[r] - \int{d\tilde{\theta}p(\tilde{\theta})H[\delta]}\label{eq2}\tag{2}\\
+               &amp;= H[r] - \int{d\tilde{\theta}p(\tilde{\theta})\left(\frac{1}{2}\ln\frac{2\pi e}{J(\delta)}+D_0\right)}\label{eq3}\tag{3}\\
+               &amp;= (H[r] - H[\tilde{\theta}]) + H[\tilde{\theta}] - \frac{1}{2}\int{d\tilde{\theta}p(\tilde{\theta})\ln\frac{2\pi e}{J(\tilde{\theta})}} - D_0\label{eq4}\tag{4}\\
+               &amp;= H[\theta] - \frac{1}{2}\int{d\theta p(\theta)\ln\frac{2\pi e}{J(\theta)}} + C_0 - D_0\label{eq5}\tag{5}\\
+               &amp;= \frac{1}{2}\ln\frac{(\int{\sqrt{J(\theta)}d\theta})^2}{2\pi e} - KL\left(p(\theta)||\frac{\sqrt{J(\theta)}}{\int{\sqrt{J(\theta)}d\theta}}\right)+ C_0 - D_0 \label{eq6}\tag{6}
+\end{align}\)</p>
+
+<p>where: <br />
+        <strong>(i)</strong> \(g(\theta) = \tilde{\theta} = E[r|\theta]\) is the tuning function and assumed to be invertible.<br />
+        <strong>(ii)</strong> \(\delta\) in \eqref{eq3} is the additive noise (i.e., \(\delta = r - \tilde{\theta}\)) whose entropy, per <em>Stam’s Inequality</em>, is minimized <strong>iff</strong> \(\delta\sim\mathcal{N}(\mu,\sigma^2)\), where it also happens that \(J(\delta)=1/\sigma^2\). Thus, \(D_0\) is the entropy difference between its actual distribution and the entropy-minimizing Gaussian. <br />
+        <strong>(iii)</strong> \(C_0 = H[r] - H[\tilde{\theta}]\), where \(H(.)\) is the Shannon entropy.<br />
+        <strong>(iv)</strong> And finally, \(J(\tilde{\theta}) = J(\delta)\) since the \(p(r|\tilde{\theta})\) terms that appear in the definition of \(J(\tilde{\theta})\) are really just \(p(\delta)\).</p>
+
+<p>The entire derivation was provided in <a href="https://www.sas.upenn.edu/~astocker/lab/publications-files/journals/NC2016/Wei_Stocker2016.pdf">Wei &amp; Stocker’s 2016 paper</a>. Note that \(C_0\) and \(D_0\) do not matter asymptotically under vanishing Gaussian noise. And for the purpose of this post, let’s assume the Gaussianity of and size of noise is near that regime. Thus to maximize the whole expression is to minimize the KL term, which is achieved when \(p(\theta)\propto\sqrt{J(\theta)}\). In other words, orientation encoding is most efficient when the orientation sensitive neurons’ tuning profile achieves a Fisher Information profile that matches the squared distribution of orientations in the environment!</p>
+
+<p>One intuitive way to form such a tuning profile is simply to have more neurons tuned for (or sensitive to, or in charge of processing) cardinal orientations and fewer neurons for oblique orientations.</p>
+
+<p>Useful and intuitive as it is, the fact that this result boils down to the principle of <strong>“allocating more neurons for the more frequently encountered stimulus feature values”</strong> is a bit too reductive, but if you are new to efficient coding, <strong>this simple intuition would suffice as your main takeaway</strong>.</p>
+
+<p><strong>First of all</strong>, there are more unintuitive ways to design the tuning curves to achieve the same FI profile. By parameterizing the tuning curves and training the parameters to minimize a mean-squared-error loss between the target FI and the actual FI profiles, I can generate several distinctive tuning profiles all satisfying the same FI target profile. From these I picked 3 representative profiles to showcase the intricacy that belies the simple intuition of “more neurons for the more frequent orientations”.</p>
+
+<p>In figure 2 below, profiles 1 and 2 (identified in <a href="https://www.nature.com/articles/nn.4105">Wei &amp; Stocker 2015</a>) show that \(J(\theta)\) is not determined by the number of neurons preferring \(\theta\) but how many neurons have tuning curves crossing \(\theta\). Profile 3 demonstrates that tuning curve height does not necessarily drive up FI, although note that here I assume multiplicative Gaussian noise (Gaussian variance scales with the expected firing rate), as opposed to Gaussian noise with a fixed variance.</p>
+
+<figure>
+<p align="middle">
+<img src="/efficient-coding-orien/orientuning_0.png" width="32%" /> 
+<img src="/efficient-coding-orien/orientuning_1.png" width="32%" />
+<img src="/efficient-coding-orien/orientuning_3.png" width="32%" />
+</p>
+<figcaption>Fig 2. Orientation tunings satisfying the efficient coding objective. In row 2, the actual FI profile is in blue, closely matching the target profile in gray.</figcaption>
+</figure>
+
+<p>The <strong>second point</strong> I am going make will be of no consequence under the natural image statistics that we typically care about, but may provoke some thoughts about what may happen in a strange world. Going back to the derivation from \(1\) to \(6\), we have glossed over an important assumption that in fact enabled us to link efficient orientation encoding and the fundemental principle of preserving maximal information content from an image in the first place.</p>
+
+<p>In \eqref{eq1} it may have appeared that \(H[r\\|\theta]\) is only a function of \(\theta\) but not other visual features. But as we know, a V1 neuron is selective for both orientation and other features such as spatial frequency. This means that the firing rate \(r\) simultaneously or jointly encodes information about both \(\theta\) and frequency \(f\).</p>
+
+<p>To see why could matter in pathological cases, we rewrite \eqref{eq1} as:</p>
+
+\[\begin{align}
+    I[\theta, r] &amp;= H[r] - \int{\left( \int{H[r|\theta, f]p(f|\theta)df}\right)p(\theta)d\theta}\label{eq7}\tag{7}
+\end{align}\]
+
+<p>Note that \eqref{eq7} is only equal to \eqref{eq1} when we assume that either \(H[r\\|\theta,f]\) is independent of \(f\) or \(p(f\\|\theta)\) is independent of \(\theta\), the latter of which turns out in fact to be true. (As a side note, \(p(\theta\\|f)\) is also independent of \(f\). See the following joint power spectrum in figure 3.)</p>
+
+<figure>
+<p align="middle">
+<img src="/efficient-coding-orien/joint_prior.png" width="40%" /> 
+</p>
+<figcaption>Fig 3. Joint power spectrum of frequency and orientation for natural scenes, adapted from Torralba &amp; Oliva. The amplitude spectrum can be seen as a proxy for the prior distribution in natural scenes.</figcaption>
+</figure>
+
+<p>But What would happen to the efficient coding solution for \(J(\theta)\) if, hypothetically, both are untrue? For example, \(H[r\\|\theta,f]\) could depend on \(f\) for reasons such as redundancy reduction, and once we find a world where \(p(f\\|\theta)\) somehow is drastically different around some orientation, the efficient coding strategy for \(\theta\) will no longer have a simple dependence on \(p(\theta)\). Such a strange world is certainly not impossible to find.</p>]]></content><author><name>Hank Zhang</name><email>hqzhang@nyu.edu</email></author><category term="neuroscience" /><category term="perception" /><summary type="html"><![CDATA[Efficient coding orientation.]]></summary></entry><entry><title type="html">Noise and two simplified forms of Fisher Information</title><link href="http://localhost:4000/noise-and-fisher-info/" rel="alternate" type="text/html" title="Noise and two simplified forms of Fisher Information" /><published>2023-02-07T00:00:00+08:00</published><updated>2023-02-07T00:00:00+08:00</updated><id>http://localhost:4000/noise-and-fisher-info</id><content type="html" xml:base="http://localhost:4000/noise-and-fisher-info/"><![CDATA[<p>Fisher information (FI) is a measure of information (though not a strict <a href="https://en.wikipedia.org/wiki/Quantities_of_information">information quantity</a>) and is commonly used in neuroscience. But for those new to the concept (like I was at some point), this post is a quick introduction to it. I assume that you already understand what neural tuning curves/functions and firing rate noise are.</p>
+
+<!-- For example, when I read that FI takes the form of \\(f'(\theta)^2\\) if noise is Gaussian, it wasn't clear to me why that is, or what \\(f(\theta)\\) is, even with the footnote explaining that it is the tuning function.  -->
+<p>At the end of the post I provide derivations for 2 basic results: 1) \(J(\theta) = f’(\theta)\) if firing rate noise is Gaussian and 2) \(J(\theta) = f’(\theta)^2 / f(\theta)\) when Poisson firing is assumed. This can serve as a primer to understanding the use of FI in <a href="https://www.nature.com/articles/s41583-021-00502-3">Kriegeskorte and Wei’s 2021 review paper</a>.</p>
+
+<!-- On the way, I will also attempt to explain in simple words and illustrations how FI is related to concepts like neural tuning, representational geometry, perceptual discrimination, etc. -->
+
+<p><strong>The original formulation of Fisher Information</strong></p>
+
+<p>In plain language and speaking generally, Fisher Information (FI) quantifies the amount of “information” an observation \(r\) of a random variable \(R\) contains about said random variable’s parameter \(\theta\). The formal way that this quantity came to be defined by Ronald Fisher was:
+\(\begin{align}
+  J(\theta) = Var(l'(\theta|r)) = \int{\left(-\frac{d}{d\theta}\log p(r|\theta)\right)^2p(r|\theta)dr}
+\end{align}\)
+where the second equality is based on the equivalence relation between \(Var(.)\) and \(E(.^2) - E^2(.)\). The definition introduced in the paper is yet another equivalent form:
+\(\begin{align}
+  J(\theta) = \int{-\frac{d^2}{d\theta}\log p(r|\theta)p(r|\theta)dr}
+\end{align}\)</p>
+
+<p><strong>Fisher Information in neuroscience</strong></p>
+
+<p>In neuroscience the situation where we care about this information is when \(r\) is the internal representation of the stimulus \(\theta\) and we want to measure how much information a reading of this internal representation (typically in the form of neural firing rates) conveys about the stimulus \(\theta\) that caused this much neural activity in the first place.</p>
+
+<p>\(r\) can be a vector of activities of multiple neurons, but for simplicity let’s assume it is just one neuron. The neuron reacts to different stimulus values differently following a tuning function \(f(\theta)\), and on top of that, it is also noisy. Generatively speaking, given a stimulus value \(\theta_0\), the neuron’s activity \(r\) is \(f(\theta_0) + \eta\) where \(\eta\) can be modeled as a stimulus-independent Gaussian noise. In some cases, it can be more accurate to model the noise as stimulus-dependent Gaussian, or simply to model \(r\) as following a Poisson process with \(f(\theta_0)\) as the mean.</p>
+
+<p>To visualize the tuning transform and the noise in the same picture:
+<!-- ![tuning-noise](/images/tuning-noise.png) --></p>
+<figure>
+<img src="/noise-and-fisher-info/tuning-noise.png" alt="tuning and noise" style="clear: both; margin-center: 0px;" />
+<figcaption>Fig 1. Tuning and noise.</figcaption>
+</figure>
+
+<p><strong>Two simplified forms of FI</strong></p>
+
+<p>So far the basic definitions may have appeared complicated, especially the definition of FI. But as the authors mention in the paper, specific noise assumptions actually simplify the expression of FI.</p>
+
+<p>1) If we assume stimulus-independent Gaussian noise with variance 1, then FI is simply:
+\(\begin{align}
+  J(\theta) = f'(\theta)^2, \label{eq1}\tag{1}
+\end{align}\)
+     where \(f(\theta)\) is the tuning function.</p>
+
+<p>2) If we assume Poisson spiking, then FI can be shown to have the following form instead:
+\(\begin{align}
+  J(\theta) = \frac{f'(\theta)^2}{f(\theta)} \label{eq2}\tag{2}
+\end{align}\)
+Here I provide the proofs. Hopefully with the background introduction on what the tuning \(f(\theta)\) is and where the noise comes in, these become easy to understand.</p>
+
+<p>Proof for \eqref{eq1}:
+When \(p(r|\theta)\) is Gaussian:
+\(\begin{align}
+  \log p(r|\theta) &amp;= -\frac{(r-f(\theta))^2}{2\sigma^2} + const \label{eq3}\tag{3}\\ 
+  J(\theta) &amp;= -E_{r|\theta}[\frac{d^2}{d\theta^2}\log p(r|\theta)] \label{eq4}\tag{4}\\
+            &amp;= -E_{r|\theta}[\frac{d^2}{d\theta^2}(\frac{rf(\theta)}{\sigma^2}-\frac{f(\theta)^2}{2\sigma^2})] \label{eq5}\tag{5}\\
+            &amp;= -E_{r|\theta}[\frac{rf''(\theta)}{\sigma^2}-(\frac{2f(\theta)f'(\theta)}{2\sigma^2})'] \label{eq6}\tag{6}\\
+            &amp;= -E_{r|\theta}[\frac{rf''(\theta)}{\sigma^2}-\frac{f'(\theta)^2}{\sigma^2}-\frac{f(\theta)f''(\theta)}{\sigma^2}] \label{eq7}\tag{7}\\
+            &amp;= -E[-\frac{1}{\sigma^2}f'(\theta)^2] \label{eq8}\tag{8}\\
+  J(\theta) &amp;= f'(\theta)^2 \label{eq9}\tag{9}
+\end{align}\)</p>
+
+<p>\eqref{eq7} to \eqref{eq8} is because \(E_{r|\theta}(r) = f(\theta)\),
+and \eqref{eq8} to \eqref{eq9} is assuming \(\sigma = 1\).</p>
+
+<p>Proof for \eqref{eq2} <!--([2](#mjx-eqn-eq2))--> follows the same procedure. If \(p(r|\theta)\) is Poisson:
+\(\begin{align}
+  \log p(r|\theta) &amp;= \log \frac{f(\theta)^re^{-f(\theta)}}{r!} = r\log f(\theta) - f(\theta) - \log r! \label{eq10}\tag{10}\\
+  J(\theta) &amp;= -E_{r|\theta}[r(\frac{f'(\theta)}{f(\theta)})'-f''(\theta)] \label{eq11}\tag{11}\\
+            &amp;= -E_{r|\theta}[r \frac{f''(\theta)f(\theta)-f'(\theta)^2}{f(\theta)^2}-f''(\theta)] \label{eq12}\tag{12}\\
+            &amp;= -[f''(\theta)-\frac{f'(\theta)^2}{f(\theta)}-f''(\theta)] \label{eq13}\tag{13}\\
+  J(\theta) &amp;= \frac{f'(\theta)^2}{f(\theta)} \label{eq14}\tag{14}
+\end{align}\)</p>
+
+<p>Now so far we have been assuming that \(r\) is a scalar, namely that only one neuron encodes \(\theta\). When multiple neurons encode the parameter together, as long as the neurons have independent noise, the FI is just the sum of the FI for individual neurons.</p>
+
+<p>Finally, if \(\theta\) itself is multidimensional, then \(J(\theta)\) becomes a matrix, e.g., \( \mathbf{J}(\theta_1, \theta_2) \) where
+\(\begin{align}
+    \mathbf{J}_{11} &amp;= J(\theta_1, \theta_2=\theta_2) \\ 
+    \mathbf{J}_{22} &amp;= J(\theta_1=\theta_1, \theta_2) \\ 
+    \mathbf{J}_{12} &amp;= \mathbf{J}_{21} = J(\theta_1, \theta_2)
+\end{align}\)</p>]]></content><author><name>Hank Zhang</name><email>hqzhang@nyu.edu</email></author><category term="neuroscience" /><category term="perception" /><summary type="html"><![CDATA[Orientation efficient coding.]]></summary></entry></feed>
