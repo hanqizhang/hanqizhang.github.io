@@ -51,9 +51,9 @@ One intuitive way to form such a tuning profile is simply to have more neurons t
 
 Useful and intuitive as it is, the fact that this result boils down to the principle of **"allocating more neurons for the more frequently encountered stimulus feature values"** is a bit too reductive, but if you are new to efficient coding, **this simple intuition would suffice as your main takeaway**.
 
-**First of all**, there are more unintuitive ways to design the tuning curves to achieve the same FI profile. By parameterizing the tuning curves and training the parameters to minimize a mean-squared-error loss between the target FI and the actual FI profiles, I can generate several distinctive tuning profiles all satisfying the same FI target profile. From these I picked 3 representative profiles to showcase the intricacy that belies the simple intuition of "more neurons for the more frequent orientations".
+If you are reading on, here are two lines of fine prints under the simple intuition. **First of all**, unintuitive tuning profiles abound for achieving the same FI profile. By parameterizing the tuning curves and training the parameters to minimize a mean-squared-error loss between the target and actual FI profiles, I can generate several distinctive tuning profiles all satisfying the same FI target profile. From those I picked 3 representative profiles to showcase the intricacy that belies the simple intuition of "more neurons for the more frequent orientations".
 
-In figure 2 below, profiles 1 and 2 (identified in [Wei & Stocker 2015](https://www.nature.com/articles/nn.4105)) show that \\(J(\theta)\\) is not determined by the number of neurons preferring \\(\theta\\) but how many neurons have tuning curves crossing \\(\theta\\). Profile 3 demonstrates that tuning curve height does not necessarily drive up FI, although note that here I assume multiplicative Gaussian noise (Gaussian variance scales with the expected firing rate), as opposed to Gaussian noise with a fixed variance.
+In figure 2 below, profiles 1 and 2 (identified in [Wei & Stocker 2015](https://www.nature.com/articles/nn.4105)) show that \\(J(\theta)\\) is not determined by the number of neurons preferring \\(\theta\\) but how many neurons have tuning curves crossing \\(\theta\\). Profile 3 demonstrates that tuning curve height does not necessarily drive up FI, although note that here I assume "multiplicative" Gaussian noise (Gaussian variance scales linearly with the expected firing rate), as opposed to Gaussian noise with a fixed variance.
 
 <figure>
 <p align="middle">
@@ -71,7 +71,7 @@ The **second point** I am going make will be of no consequence under the natural
 
 In \eqref{eq1} it may have appeared that $$H[r\\|\theta]$$ is only a function of \\(\theta\\) but not other visual features. But as we know, a V1 neuron is selective for both orientation and other features such as spatial frequency. This means that the firing rate \\(r\\) simultaneously or jointly encodes information about both \\(\theta\\) and frequency \\(f\\). 
 
-To see why could matter in pathological cases, we rewrite \eqref{eq1} as:
+To see why this could matter in pathological cases, we rewrite \eqref{eq1} as:
 
 $$
 \begin{align}
@@ -89,6 +89,6 @@ Note that \eqref{eq7} is only equal to \eqref{eq1} when we assume that either $$
 <figcaption>Fig 3. Joint power spectrum of frequency and orientation for natural scenes, adapted from Torralba & Oliva. The amplitude spectrum can be seen as a proxy for the prior distribution in natural scenes.</figcaption>
 </figure>
 
-But What would happen to the efficient coding solution for $$J(\theta)$$ if, hypothetically, both are untrue? For example, $$H[r\\|\theta,f]$$ could depend on $$f$$ for reasons such as redundancy reduction, and once we find a world where $$p(f\\|\theta)$$ somehow is drastically different around some orientation, the efficient coding strategy for $$\theta$$ will no longer have a simple dependence on $$p(\theta)$$. Such a strange world is certainly not impossible to find.
+But what would happen to the efficient coding solution for $$J(\theta)$$ if, hypothetically, both are untrue? For example, $$H[r\\|\theta,f]$$ could depend on $$f$$ for reasons such as redundancy reduction, and once we find a world where $$p(f\\|\theta)$$ somehow is drastically different around some orientation, the efficient coding strategy for $$\theta$$ will no longer have a simple dependence on $$p(\theta)$$. Such a strange world is certainly not impossible to find.
 
 

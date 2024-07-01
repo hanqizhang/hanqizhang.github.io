@@ -62,7 +62,7 @@ However, as it turned out, the parvo and magno RGCs in the human and monkey reti
 
 The next candidate in line to take credit for the psychophysical CSF is V1. If retina does not know whitening, then V1 probably has to. The question is how, and whether this redundancy reduction goal would be in conflict with the specific type of efficient coding strategy discussed in my previous post.
 
-To limit the scope of analysis, we have to make a simplifying assumption (but see e.g. [Skyberg et al 2022](https://www.sciencedirect.com/science/article/pii/S2211124722003540)). Let's assume that V1 processes all information across all spatial frequencie with the same speed at the same time.
+To limit the scope of analysis, we have to make a simplifying assumption (but see e.g. [Skyberg et al 2022](https://www.sciencedirect.com/science/article/pii/S2211124722003540)). Let's assume that V1 processes all information across all spatial frequencies with the same speed at the same time.
 
 Now the question is: can V1 accomplish two objectives at once:
 1. Whiten the spatial power spectrum (as in Atick & Redlich)
@@ -91,4 +91,4 @@ This goes to show that it is still possible, although demanding, for V1 to accom
 
 Finally, let's come back to the initial assumption. In fact, experimentalists have demonstrated that our visual system probably processes spatial frequency information in a coarse-to-fine temporal sequence, which means that the high-frequency preferring neurons fire after the low-frequency preferring ones. This would break our initial assumption that has limited our analysis to a static one.
 
-So it may turn out that various temporal dynamics is the key to understanding what V1 really know about natural scenes. But that's for another post to scratch the surface of. 
+So it may turn out that various temporal dynamics is the key to understanding what V1 really knows about natural scenes. But that's for another post to scratch the surface of. 
