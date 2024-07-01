@@ -3,7 +3,8 @@ title: What do the retina and V1 know about spatial frequencies in natural scene
 date: 2024-06-26
 modified: 2024-06-30
 tags: [neuroscience, perception]
-description: CSF.
+excerpt: Compared to orientation, the efficient coding objective is more complicated for spatial frequency (SF). This one explores the feasibility of meeting two objectives with one set of SF tuning curves.
+description: Efficient coding for spatial frequency.
 usemathjax: true
 ---
 

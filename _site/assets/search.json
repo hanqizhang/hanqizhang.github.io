@@ -2,7 +2,7 @@
   
     {
       "title"    : "What do the retina and V1 know about spatial frequencies in natural scenes?",
-      "description" : "CSF.",
+      "description" : "Efficient coding for spatial frequency.",
       "tags"     : "neuroscience, perception",
       "url"      : "/contrast-sensitivity/",
       "date"     : "2024-06-26 00:00:00 +0800"
@@ -10,7 +10,7 @@
   
     {
       "title"    : "What does V1 know about orientations in natural scenes?",
-      "description" : "Efficient coding orientation.",
+      "description" : "Efficient coding for orientation.",
       "tags"     : "neuroscience, perception",
       "url"      : "/efficient-coding-orien/",
       "date"     : "2024-06-23 00:00:00 +0800"
@@ -18,7 +18,7 @@
   
     {
       "title"    : "Noise and two simplified forms of Fisher Information",
-      "description" : "Orientation efficient coding.",
+      "description" : "Introduction to Fisher Information.",
       "tags"     : "neuroscience, perception",
       "url"      : "/noise-and-fisher-info/",
       "date"     : "2023-02-07 00:00:00 +0800"

@@ -3,7 +3,8 @@ title: What does V1 know about orientations in natural scenes?
 date: 2024-06-23
 modified: 2024-06-26
 tags: [neuroscience, perception]
-description: Efficient coding orientation.
+excerpt: Introduction and review of the efficient coding principle describing how the brain should allocate its neuronal resources to process natural images. Also some thoughts on how pathological situations could make the optimal solution not so pretty.
+description: Efficient coding for orientation.
 usemathjax: true
 ---
 

@@ -3,7 +3,8 @@ title: Noise and two simplified forms of Fisher Information
 date: 2023-02-07
 modified: 2024-06-25
 tags: [neuroscience, perception]
-description: Orientation efficient coding.
+excerpt: What is Fisher Information all about? Let's put it to the context of tuning curves and firing rate noise that we are more familiar with.
+description: Introduction to Fisher Information.
 usemathjax: true
 ---
 
