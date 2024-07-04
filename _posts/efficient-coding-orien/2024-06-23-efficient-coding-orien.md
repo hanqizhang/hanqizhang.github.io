@@ -28,7 +28,9 @@ Statistically speaking, in the natural environment, the orientations of local st
 <figcaption>Fig 1. Orientation distribution in natural scenes (adapted from Girschick et al).</figcaption>
 </figure>
 
-To maximize the encoding efficiency for orientation, the visual sytem should arrange its tuning curves to maximize a mutual information quantity \\(I[\theta, r]\\) which turns out can be written in terms of Fisher Information and the distribution of orientations in the environment:
+To maximize the encoding efficiency for orientation, the visual system should arrange its tuning curves to maximize the [mutual information](https://en.wikipedia.org/wiki/Mutual_information) between the orientation \\(\theta\\) and the neural activity \\(r\\) encoding orientations. Intuitively speaking, high mutual information means that by observing the neural encoding of orientation, a decoder can obtain much information about the actual orientation, and *vice versa*. 
+
+This mutual information quantity, written as \\(I[\theta, r]\\), is a function of the joint and marginal distributions of \\(r\\) and \\(\theta\\) and is closely related to the [Shannon entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)) of each of the two variables (since entropy is also a function of a variable's distribution). As it turns out, \\(I[\theta, r]\\) can also be written in terms of the Fisher Information (see [my previous post](https://hanqizhang.github.io/noise-and-fisher-info/), here a function of orientation) and the distribution of orientations in the environment:
 $$
 \begin{align}
   I[\theta, r] &= I[f(\theta), r] = H[r] - \int{d\tilde{\theta}p(\tilde{\theta})H[r|\tilde{\theta}]}\label{eq1}\tag{1}\\
