@@ -8,7 +8,7 @@ description: Introduction to Fisher Information.
 usemathjax: true
 ---
 
-Fisher information (FI) is a measure of information (though not a strict [information quantity](https://en.wikipedia.org/wiki/Quantities_of_information)) and is commonly used in neuroscience. But for those new to the concept (like I was at some point), this post is a quick introduction to it. I assume that you already understand what neural tuning curves/functions and firing rate noise are.
+Fisher information (FI) is a measure of information (though not a strict [information quantity](https://en.wikipedia.org/wiki/Quantities_of_information)) and is commonly used in neuroscience. But when I was new to the concept, it seemed hard to grasp because of its connection with many other concepts in neuroscience. This post is a quick introduction to some frequently used conclusions and remarks about FI in neuroscience. I assume that you already understand what neural [tuning curves](https://en.wikipedia.org/wiki/Neural_coding#Position_coding) and [firing rate noise](https://www.cns.nyu.edu/~david/handouts/poisson.pdf) are.
 
 <!-- For example, when I read that FI takes the form of \\(f'(\theta)^2\\) if noise is Gaussian, it wasn't clear to me why that is, or what \\(f(\theta)\\) is, even with the footnote explaining that it is the tuning function.  -->
 At the end of the post I provide derivations for 2 basic results: 1) \\(J(\theta) = f'(\theta)\\) if firing rate noise is Gaussian and 2) \\(J(\theta) = f'(\theta)^2 / f(\theta)\\) when Poisson firing is assumed. This can serve as a primer to understanding the use of FI in [Kriegeskorte and Wei's 2021 review paper](https://www.nature.com/articles/s41583-021-00502-3).
@@ -37,7 +37,7 @@ $$
 
 which can be verified noticing: \\(-(\log x)'' = -(1/x)' = 1/x^2 = ((\log x)')^2\\). 
 
-Now personally, I think this form in \eqref{eq2} gives a more intuitive way of understanding FI, since it can be seen as the expectation the second derivative of the negative log-likelihood (NLL) function. The [maximum-likelihood estimator (MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation) for \\(\theta\\) given \\(r\\) is obtained when the first derivative of the NLL is zero, where the NLL has a local trough (local peak for the log-likelihood function). Looking further at the second derivative tells us how sharp the trough is, and hence quantifies the "precision" of the MLE.
+Now personally, I think this form in \eqref{eq2} gives a more intuitive way of understanding FI, since it can be seen as the expectation of the second derivative of the negative log-likelihood (NLL) function. The [maximum-likelihood estimator (MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation) for \\(\theta\\) given \\(r\\) is obtained when the first derivative of the NLL is zero, where the NLL has a local trough (local peak for the log-likelihood function). Looking further at the second derivative tells us how sharp the trough is, and hence quantifies the "precision" of the MLE.
 
 **Fisher Information in neuroscience**
 
