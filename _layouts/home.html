@@ -5,7 +5,7 @@ home: true
 
 <h3 class="news-item-note" aria-label="News">News</h3>
 {%- assign news = site.news | sort: "date" | reverse -%}
-{%- for new in news limit: 3 -%}
+{%- for new in news limit: 5 -%}
 <article class="post-item">
   <span class="post-item-date">{{ new.date | date: "%b %d, %Y" }}</span>
   <h4 class="post-item-title">
